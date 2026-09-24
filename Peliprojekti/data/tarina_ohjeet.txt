@@ -1,17 +1,106 @@
 
 
----------------------------------------------------
-                    TARINA
----------------------------------------------------
+==========================================================================
+                            MURHA KARTANOSSA
+==========================================================================
+On myöhäinen syysilta Kiven kartanolla.
+Kartanon omistaja on tunnettu menestyvä
+yrittäjä Edvard Kivi. Hänen yrityksensä 
+kehittää uusiutuvaan energiaan liittyvää 
+teknologiaa.
 
+Tänä iltana Edvard on kutsunut kartanoon
+neljä ihmistä:
+Helena Kivi – Edvardin vaimo.
+James Kivi – Edvardin veli.
+Sofia Niemi – Edvardin sihteeri.
+Viktor Salonen – Edvardin liikekumppani.
 
+Illan aikana Edvard kertoo vieraille
+tärkeän uutisen. Hän on kehittänyt 
+uuden aurinkopaneelin, joka pystyy tuottamaan 
+huomattavasti enemmän sähköä kuin tavallinen 
+samankokoinen paneeli.
 
+Edvard aikoo esitellä keksinnön seuraavana
+päivänä, ja sen on huhuttu mullistavan 
+uusiutuvan energian talteenoton ja käytön.
 
+Illan jälkeen Edvard menee työhuoneeseensa ja 
+hetkeä myöhemmin koko kartano pimenee.
 
+Sähköt ovat poissa vain muutaman minuutin.
+Kun valot palaavat, Edvard löytyy työhuoneestaan 
+kuolleena. Hänen työpöydällään ollut 
+USB-muistitikku on kadonnut. Tikulle oli 
+tallennettu uuden aurinkopaneelin tärkeät 
+tutkimustiedot.
 
+Poliisi ei pääse paikalle ennen aamua.
+Sinun tehtäväsi on selvittää, 
+Kuka murhasi Edvard Kiven?
 
+Onnea tehtävään!
+==========================================================================
+                                OHJEET
+==========================================================================
+PELINOHJEET
 
----------------------------------------------------
-                    OHJEET
----------------------------------------------------
+Edvard Kivi on löydetty kuolleena työhuoneesta.
+Sinun tehtäväsi on selvittää murhaaja
+
+PELIN TOIMINNOT
+
+TUTKI HUONEITA
+
+- Tutki kartanon eri huoneita ja lue niiden kuvauksia. 
+- Kun tutkit huonetta tarkemmin, voit löytää uusia vihjeitä.
+
+KERÄÄ ESINEITÄ
+
+- Huoneista löytyy esineitä, jotka voivat auttaa tutkimuksessa.
+- Kerää hyödylliset esineet mukaan.
+
+KATSO INVENTAARIOTA
+
+- Inventaario näyttää kaikki keräämäsi esineet.
+- Voit valita esineen ja tutkia sitä tarkemmin.
+
+TUTKI EPÄILTYJÄ
+
+- Kartanon neljä epäiltyä ovat:
+    - Elisa Kivi
+    - James Kivi
+    - Viktor Salonen
+    - Sofia Niemi
+
+- Tutki heidän tietojaan. 
+- Mieti kenellä voisi olla motiivi ja mahdollisuus syyllistyä murhaan.
+
+TUTKI VIHJEITÄ
+
+- Kaikki löytämäsi vihjeet tallennetaan.
+- Voit tarkastella vihjeitä uudelleen.
+
+RATKAISE PIN-KOODI
+
+- Edvardin tietokone on lukittu kuusinumeroisella PIN-koodilla.
+- Sen voi ratkaista kartanosta löytyvien vihjeiden avulla.
+
+RATKAISE MURHAAJA
+
+- Kun olet ratkaissut PIN-koodin, voit yrittää ratkaista murhaajan.
+- Tutki kaikki vihjeet huolellisesti ennen lopullista arvausta.
+
+VAROITUS
+
+- Peli alkaa alusta, jos annat väärän PIN-koodin,
+- Peli alkaa alusta, Jos syytät väärää henkilöä
+
+TALLENTAMINEN
+
+- Voit tallentaa pelin päävalikon kautta, ja jatkaa myöhemmin.
+
+ONNEA TUTKINTAAN!
+==========================================================================
 
