@@ -1,5 +1,3 @@
-
-
 ==========================================================================
                             MURHA KARTANOSSA
 ==========================================================================
@@ -25,9 +23,8 @@ samankokoinen paneeli.
 Edvard aikoo esitellä keksinnön seuraavana
 päivänä, ja sen on huhuttu mullistavan 
 uusiutuvan energian talteenoton ja käytön.
-
-Illan jälkeen Edvard menee työhuoneeseensa ja 
-hetkeä myöhemmin koko kartano pimenee.
+Illallisen jälkeen Edvard menee työhuoneeseensa
+ja hetkeä myöhemmin koko kartano pimenee.
 
 Sähköt ovat poissa vain muutaman minuutin.
 Kun valot palaavat, Edvard löytyy työhuoneestaan 
@@ -45,62 +42,49 @@ Onnea tehtävään!
                                 OHJEET
 ==========================================================================
 PELINOHJEET
-
 Edvard Kivi on löydetty kuolleena työhuoneesta.
 Sinun tehtäväsi on selvittää murhaaja
 
-PELIN TOIMINNOT
+PELIN TOIMINNOT:
+    TUTKI HUONEITA
+    - Tutki kartanon eri huoneita ja lue niiden kuvauksia. 
+    - Kun tutkit huonetta tarkemmin, voit löytää uusia vihjeitä.
 
-TUTKI HUONEITA
+    KERÄÄ ESINEITÄ
+    - Huoneista löytyy esineitä, jotka voivat auttaa tutkimuksessa.
+    - Kerää hyödylliset esineet mukaan.
 
-- Tutki kartanon eri huoneita ja lue niiden kuvauksia. 
-- Kun tutkit huonetta tarkemmin, voit löytää uusia vihjeitä.
+    KATSO INVENTAARIOTA
+    - Inventaario näyttää kaikki keräämäsi esineet.
+    - Voit valita esineen ja tutkia sitä tarkemmin.
 
-KERÄÄ ESINEITÄ
+    TUTKI EPÄILTYJÄ
+    - Kartanon neljä epäiltyä ovat:
+        - Elisa Kivi
+        - James Kivi
+        - Viktor Salonen
+        - Sofia Niemi
+    - Tutki heidän tietojaan. 
+    - Mieti kenellä voisi olla motiivi ja mahdollisuus syyllistyä murhaan.
 
-- Huoneista löytyy esineitä, jotka voivat auttaa tutkimuksessa.
-- Kerää hyödylliset esineet mukaan.
+    TUTKI VIHJEITÄ
+    - Kaikki löytämäsi vihjeet tallennetaan.
+    - Voit tarkastella vihjeitä uudelleen.
 
-KATSO INVENTAARIOTA
+    RATKAISE PIN-KOODI
+    - Edvardin tietokone on lukittu kuusinumeroisella PIN-koodilla.
+    - Sen voi ratkaista kartanosta löytyvien vihjeiden avulla.
 
-- Inventaario näyttää kaikki keräämäsi esineet.
-- Voit valita esineen ja tutkia sitä tarkemmin.
+    RATKAISE MURHAAJA
+    - Kun olet ratkaissut PIN-koodin, voit yrittää ratkaista murhaajan.
+    - Tutki kaikki vihjeet huolellisesti ennen lopullista arvausta.
 
-TUTKI EPÄILTYJÄ
+    VAROITUS
+    - Peli alkaa alusta, jos annat väärän PIN-koodin,
+    - Peli alkaa alusta, Jos syytät väärää henkilöä
 
-- Kartanon neljä epäiltyä ovat:
-    - Elisa Kivi
-    - James Kivi
-    - Viktor Salonen
-    - Sofia Niemi
+    TALLENTAMINEN
+    - Voit tallentaa pelin päävalikon kautta, ja jatkaa myöhemmin.
 
-- Tutki heidän tietojaan. 
-- Mieti kenellä voisi olla motiivi ja mahdollisuus syyllistyä murhaan.
-
-TUTKI VIHJEITÄ
-
-- Kaikki löytämäsi vihjeet tallennetaan.
-- Voit tarkastella vihjeitä uudelleen.
-
-RATKAISE PIN-KOODI
-
-- Edvardin tietokone on lukittu kuusinumeroisella PIN-koodilla.
-- Sen voi ratkaista kartanosta löytyvien vihjeiden avulla.
-
-RATKAISE MURHAAJA
-
-- Kun olet ratkaissut PIN-koodin, voit yrittää ratkaista murhaajan.
-- Tutki kaikki vihjeet huolellisesti ennen lopullista arvausta.
-
-VAROITUS
-
-- Peli alkaa alusta, jos annat väärän PIN-koodin,
-- Peli alkaa alusta, Jos syytät väärää henkilöä
-
-TALLENTAMINEN
-
-- Voit tallentaa pelin päävalikon kautta, ja jatkaa myöhemmin.
-
-ONNEA TUTKINTAAN!
-==========================================================================
-
+    ONNEA TUTKINTAAN!
+    ==========================================================================

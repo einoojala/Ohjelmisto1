@@ -1,66 +1,114 @@
-# Tuodaan Pelaaja-luokka, jotta tallennuksesta voidaan luoda uusi pelaaja.
 from peli import Pelaaja
-# Tuodaan kaikki huoneet, jotta tallennettu sijainti voidaan yhdistää oikeaan Huone-olioon.
 from peli.huoneet import tyohuone, kirjasto, keittio, olohuone, ruokasali
-# Tuodaan kaikki esineet, jotta tallennettu esineen nimi voidaan yhdistää oikeaan Esine-olioon.
 from peli.esineet import tutkimuspaperi, avainkortti, usb_kotelo, kuppi, muistilappu
+from peli.epaillyt import epaillyt
 
+# --------------------------------------------------
+# PELIN TALLENNUS
+# --------------------------------------------------
 # Tallennetaan pelaajan tämänhetkinen pelitilanne save.txt-tiedostoon.
 def tallenna_peli(pelaaja):
-    # Avataan/ luodaan tallennustiedosto kirjoittamista varten.
-    with open("data/save.txt", "w") as tiedosto:
-        # Tallennetaan pelaajan nimi ja ikä omille riveilleen.
+    # Avataan tai luodaan tallennustiedosto kirjoittamista varten. 
+    # encoding="utf-8" varmistaa, että suomalaiset merkit tallentuvat oikein.
+    with open("data/save.txt", "w", encoding="utf-8") as tiedosto:
+        # Tallennetaan pelaajan nimi ja ikä.
         tiedosto.write(f"nimi:{pelaaja.nimi}\n")
         tiedosto.write(f"ika:{pelaaja.ika}\n")
 
-        # Tarkistetaan, että pelaajalla on jokin sijainti ja tallennetaan se
+        # Tarkistetaan pelaajan sijainti ja tallennetaan se.
         if pelaaja.sijainti is not None:
             tiedosto.write(f"sijainti:{pelaaja.sijainti.nimi}\n")
         else:
             # Jos pelaaja ei ole vielä ollut missään huoneessa, tallennetaan tyhjä arvo.
             tiedosto.write("sijainti:\n")
 
-        # Inventaario sisältää Esine-olioita, mutta tiedostoon tallennetaan vain esineiden nimet.
+        # Tallennetaan inventaarion esineiden nimet.
         esineet = []
-        # Käydään pelaajan inventaarion kaikki esineet läpi.
+
+        # Käydään pelaajan inventaarion esineet läpi.
         for esine in pelaaja.inventaario:
-            # Lisätään esineen nimi väliaikaiseen listaan.
             esineet.append(esine.nimi)
 
-        # join() yhdistää listan nimet yhdeksi merkkijonoksi.
-        # Esimerkiksi: ["Tutkimuspaperi", "Teekuppi"] muuttuu muotoon: "Tutkimuspaperi,Teekuppi"
+        # Yhdistetään esineiden nimet yhdeksi merkkijonoksi.
         tiedosto.write(f"inventaario:{','.join(esineet)}\n")
 
-        # Tallennetaan kaikki pelaajan löytämät vihjeet. Vihjeet erotetaan toisistaan |-merkillä.
-        tiedosto.write(f"vihjeet:{'|'.join(pelaaja.vihjeet)}\n")
+        # Tallennetaan pelaajan löytämät vihjeet.
+        tiedosto.write("vihjeet:\n")
 
-        # Tallennetaan tieto siitä, onko PIN-koodi ratkaistu. Arvo tallentuu tekstinä True tai False.
+        # Jokainen vihje tallennetaan omalle riville ranskalaisella viivalla.
+        for vihje in pelaaja.vihjeet:
+            tiedosto.write(f"- {vihje}\n")
+
+        # Tallennetaan tieto siitä, onko PIN-koodi ratkaistu.
         tiedosto.write(f"pin_ratkaistu:{pelaaja.pin_ratkaistu}\n")
+
+        # Tallennetaan tieto tutkituista huoneista
+        tiedosto.write(f"tutkitut_huoneet:{','.join(huone.nimi for huone in pelaaja.tutkitut_huoneet)}\n")
+
+        # Tallennetaan tieto tutkituista epäillyistä
+        tiedosto.write(f"tutkitut_epaillyt:{','.join(epailty.nimi for epailty in pelaaja.tutkitut_epaillyt)}\n")
+
     # Ilmoitetaan pelaajalle, että tallennus onnistui.
     print("\nPeli tallennettu!")
 
+# --------------------------------------------------
+# PELIN LATAAMINEN
+# --------------------------------------------------
 # Ladataan aikaisemmin tallennettu peli.
 def lataa_peli():
     # Avataan tallennustiedosto lukemista varten.
-    with open("data/save.txt", "r") as tiedosto:
-        # Luetaan kaikki tallennustiedoston rivit listaksi.
+    # encoding="utf-8" varmistaa, että suomalaiset merkit luetaan oikein.
+    with open("data/save.txt", "r", encoding="utf-8") as tiedosto:
+        # Luetaan tallennustiedoston rivit listaksi.
         rivit = tiedosto.readlines()
 
-    # Luodaan tyhjä sanakirja, johon tallennustiedoston avaimet ja arvot voidaan sijoittaa.
+    # Luodaan sanakirja tallennustiedoston tietoja varten.
     tiedot = {}
+
     # Käydään kaikki tallennustiedoston rivit läpi.
-    for rivi in rivit:
-        # Poistetaan rivin alussa ja lopussa olevat tyhjät merkit.
-        # split(":", 1) jakaa rivin kahteen osaan: avaimeen ja arvoon.
-        # Esimerkiksi: "nimi: Sofia" muuttuu muotoon: avain = "nimi" ja arvo = "Sofia"
-        avain, arvo = rivi.strip().split(":", 1)
+    i = 0
+
+    while i < len(rivit):
+        rivi = rivit[i].strip()
+
+        # Ohitetaan tyhjät rivit.
+        if not rivi:
+            i += 1
+            continue
+
+        if rivi == "vihjeet:":
+            vihjeet = []
+            i += 1
+
+            while i < len(rivit):
+                vihjerivi = rivit[i].strip()
+
+                if vihjerivi.startswith("- "):
+                    vihje = vihjerivi[2:]
+                    vihjeet.append(vihje)
+                    i += 1
+                else:
+                    break
+
+            # Tallennetaan vihjelista tiedot-sanakirjaan.
+            tiedot["vihjeet"] = vihjeet
+
+            # Jatketaan seuraavan tiedon käsittelyyn.
+            continue
+
+        # Muut tallennustiedot käsitellään normaalisti.
+        avain, arvo = rivi.split(":", 1)
+
         # Tallennetaan avain ja arvo sanakirjaan.
         tiedot[avain] = arvo
 
-    # Luodaan uusi Pelaaja-olio int() muuttaa tiedoston iän merkkijonosta kokonaisluvuksi.
+        # Siirrytään seuraavalle riville.
+        i += 1
+
+    # Luodaan uusi Pelaaja-olio tallennettujen tietojen perusteella.
     pelaaja = Pelaaja(tiedot["nimi"], int(tiedot["ika"]))
 
-    # Sanakirjan avulla tallennettu huoneen nimi yhdistetään oikeaan Huone-olioon.
+    # Yhdistetään tallennettu huoneen nimi oikeaan Huone-olioon.
     huoneet = {
         "Työhuone": tyohuone,
         "Kirjasto": kirjasto,
@@ -69,11 +117,10 @@ def lataa_peli():
         "Ruokasali": ruokasali}
 
     # Tarkistetaan, löytyykö tallennettu sijainti huoneiden sanakirjasta.
-    # Jos löytyy, pelaajan sijainniksi asetetaan tämä Huone-olio.
     if tiedot["sijainti"] in huoneet:
         pelaaja.sijainti = huoneet[tiedot["sijainti"]]
 
-    # Sanakirja, jonka avulla tallennettu esineen nimi voidaan yhdistää oikeaan Esine-olioon.
+    # Yhdistetään tallennetut esineiden nimet oikeisiin Esine-olioihin.
     kaikki_esineet = {
         "Tutkimuspaperi": tutkimuspaperi,
         "Yrityksen avainkortti": avainkortti,
@@ -81,12 +128,11 @@ def lataa_peli():
         "Teekuppi": kuppi,
         "Muistilappu": muistilappu}
 
-    # Jos inventaariossa on tallennettuja esineitä, palautetaan ne pelaajan inventaarioon.
+    # Jos inventaariossa on tallennettuja esineitä, palautetaan ne inventaarioon.
     if tiedot["inventaario"]:
-
-        # split(",") jakaa tallennetun merkkijonon takaisin yksittäisiksi esineiden nimiksi.
-        # Esimerkiksi: "Tutkimuspaperi,Teekuppi" muuttuu listaksi: ["Tutkimuspaperi", "Teekuppi"]
+        # Jaetaan tallennetut esineiden nimet listaksi.
         esineiden_nimet = tiedot["inventaario"].split(",")
+
         # Käydään kaikki tallennetut esineet läpi.
         for nimi in esineiden_nimet:
             # Tarkistetaan, löytyykö nimi kaikki_esineet-sanakirjasta.
@@ -94,25 +140,42 @@ def lataa_peli():
                 # Lisätään oikea Esine-olio pelaajan inventaarioon.
                 pelaaja.inventaario.append(kaikki_esineet[nimi])
 
-    # Jos pelaajalla on tallennettuja vihjeitä, palautetaan ne vihjelistaan.
+    # Palautetaan pelaajan löytämät vihjeet.
     if tiedot["vihjeet"]:
-        # split("|") jakaa tallennetun tekstin takaisin yksittäisiksi vihjeiksi.
-        pelaaja.vihjeet = tiedot["vihjeet"].split("|")
-
-    # Tallennuksessa True ja False ovat tekstiä.
+        pelaaja.vihjeet = tiedot["vihjeet"]
+    
     # Vertailulla muutetaan "True" oikeaksi boolean-arvoksi True.
     # Jos arvo on jotain muuta, tulokseksi tulee False.
     pelaaja.pin_ratkaistu = tiedot["pin_ratkaistu"] == "True"
 
-    # Pelaajan mukana olevat esineet täytyy poistaa huoneista, muuten voisi löytyä sama esine.
+    # Palautetaan pelaajan tutkimat huoneet.
+    if tiedot["tutkitut_huoneet"]:
+        huoneiden_nimet = tiedot["tutkitut_huoneet"].split(",")
+
+        for nimi in huoneiden_nimet:
+            if nimi in huoneet:
+                pelaaja.tutkitut_huoneet.append(huoneet[nimi])
+
+    # Luodaan sanakirja epäiltyjen nimistä epäilty-olioihin.
+    kaikki_epaillyt = {epailty.nimi: epailty for epailty in epaillyt}
+
+    # Palautetaan pelaajan tutkimat epäillyt.
+    if tiedot["tutkitut_epaillyt"]:
+        epailtyjen_nimet = tiedot["tutkitut_epaillyt"].split(",")
+
+        for nimi in epailtyjen_nimet:
+            if nimi in kaikki_epaillyt:
+                pelaaja.tutkitut_epaillyt.append(kaikki_epaillyt[nimi])
+
+    # Poistetaan pelaajan inventaariossa olevat esineet huoneista.
     for huone in huoneet.values():
-        # [:] tekee huoneen esineistä kopion, jota voidaan käydä läpi
-        # samalla kun alkuperäisestä poistetaan esineitä.
+
+        # Kopioidaan lista, jotta alkuperäistä listaa voidaan muuttaa.
         for esine in huone.esineet[:]:
             # Jos esine on pelaajan inventaariossa, poistetaan se huoneesta.
             if esine in pelaaja.inventaario:
                 huone.esineet.remove(esine)
-    # Ilmoitetaan pelaajalle, että tallennus ladattiin onnistuneesti.
+
     print("\nTallennettu peli ladattu!")
     # Palautetaan valmis Pelaaja-olio main.py:lle.
     return pelaaja
