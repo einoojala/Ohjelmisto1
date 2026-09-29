@@ -28,8 +28,6 @@ class LukittuEsine(Esine):
         koodi = input("Syötä 6-numeroinen PIN-koodi (x = poistu): ")
         if koodi.lower() == "x":
             return
-
-        # Tarkistetaan, onko pelaajan antama PIN-koodi oikea.
         if koodi == self.pin:
             print("\nOikea PIN-koodi!")
             print("Tietokone avautuu.")
@@ -38,14 +36,14 @@ class LukittuEsine(Esine):
             pelaaja.pin_ratkaistu = True
 
             print("\n--- SALAINEN VIESTI ---")
-            print("USB-muisti ei kadonnut itsestään.")
-            print("Sen vei henkilö, joka tiesi tutkimuksesta")
-            print("ja pääsi käsiksi työhuoneeseen.")
-            print("Mutta kuka tiesi tarpeeksi?")
+            print("Edvardin tietokoneelta löytyy viimeinen merkintä:")
+            print("Joku on osoittanut huomattavaa kiinnostusta tutkimukseeni.")
+            print("Hänellä on ollut mahdollisuus nähdä työni")
+            print("ja päästä käsiksi työhuoneeseen.")
+            print("Jos minulle tapahtuu jotain, näitä tietoja kannattaa tutkia tarkemmin.")
 
             # Lisätään tietokoneesta löytyvä viesti pelaajan vihjeisiin.
-            pelaaja.lisaa_vihje("USB-muistin vei henkilö, joka tiesi tutkimuksesta ja pääsi käsiksi työhuoneeseen.")
-
+            pelaaja.lisaa_vihje("Epäillyllä oli tietoa tutkimuksesta ja pääsy työhuoneeseen.")
             # True kertoo kutsuvalle funktiolle, että PIN-koodi ratkaistiin onnistuneesti.
             return True
 
@@ -62,31 +60,36 @@ class LukittuEsine(Esine):
 
 tutkimuspaperi = Esine("Tutkimuspaperi",
 """Paperissa on aurinkopaneeliin liittyviä laskelmia.
-Paperin alareunassa lukee:
-'400 W / paneeli - 25 paneelia.'""",
-"400 W ja 25 paneelia liittyvät Edvardin uuden aurinkopaneelin kokonaistehoon.")
+Muistiinpanoissa pohditaan, miten aurinkoenergia voisi vähentää riippuvuutta fossiilisista polttoaineista.
+Paperin alareunassa lukee: "400 W / paneeli - 25 paneelia.""",
+"Laske teho. Kaksi ensimmäistä ratkaisevat.")
 
 avainkortti = Esine("Yrityksen avainkortti",
 """Kortti kuuluu yrityksen henkilökunnalle.
 Kortissa lukee:
-Sofia Niemi – sihteeri.
+Sofia Niemi - sihteeri.
 Kortilla pääsee myös Edvardin työhuoneeseen.""",
 "Sofialla oli pääsy Edvardin työhuoneeseen.")
 
 usb_kotelo = Esine("USB-kotelo",
 """Pieni musta kotelo löytyy työhuoneen laatikosta.
-USB-muistitikkua ei kuitenkaan ole kotelon sisällä.""",
-"Joku on vienyt USB-muistitikun kotelosta.")
+USB-muistitikkua ei ole. Kotelon pohjassa lukee: J.K.""",
+"USB-kotelossa on Jamesin nimikirjaimet.")
 
 kuppi = Esine("Teekuppi",
 """Keittiöstä löytyy kuppi, jonka pitäisi kuulua Sofialle.
 Kupissa ei kuitenkaan ole teetä ja kuppi on täysin kuiva.""",
 "Sofian kertomus teen valmistamisesta vaikuttaa epäilyttävältä.")
 
-muistilappu = Esine("Muistilappu", "Siinä lukee jotain", "= O-R-T-K")
+paivakirja = Esine("Päiväkirja",
+"""Vanha päiväkirja löytyy kirjahyllyn välistä. Useat sivut ovat täynnä 
+aurinkoenergiaan liittyviä muistiinpanoja. Yksi sivu on revitty irti.""",
+"Päiväkirjan merkinnän mukaan ensimmäinen toimiva prototyyppi valmistui vuonna 2024.")
+
+muistilappu = Esine("Muistilappu", "Muistilapussa on mysteeri", "= O(1N) - R(1N) - T(2N) - P(2N)")
 
 tietokone = LukittuEsine("Edvardin tietokone",
 """Tietokone on päällä, mutta näyttö on lukittu.
 Näytöllä näkyy vain PIN-koodin syöttökenttä.""",
 "Tietokoneessa saattaa olla jotain salaista",
-"680024")
+"681024")

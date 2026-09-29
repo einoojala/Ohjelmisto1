@@ -15,15 +15,14 @@ def ratkaise_pin_koodi(pelaaja):
 
     # Kutsutaan tietokoneen avaamismetodia, joka tarkistaa PIN-koodin.
     tulos = tietokone.avaaminen(pelaaja)
-
-    # False palautetaan main.py:lle, jotta peli voidaan aloittaa alusta.
-    if tulos == False:
+    # False kertoo paavalikko.py:lle, että peli pitää aloittaa alusta.
+    if tulos is False:
         return False
     
 # --------------------------------------------------
 # MURHAAJAN RATKAISEMINEN
 # --------------------------------------------------
-# Käynnistää murhaajan ratkaisemisen
+# Käynnistää murhaajan ratkaisemisen.
 def ratkaise_murhaaja():
     print("\n--- RATKAISE MURHAAJA ---")
     print("\nVAROITUS!")
@@ -36,7 +35,6 @@ def ratkaise_murhaaja():
     # enumerate antaa jokaiselle epäillylle numeron, jotta pelaaja voi valita epäillyn numerolla.
     for numero, epailty in enumerate(epaillyt, 1):
         print(f"{numero}. {epailty.nimi}")
-
     print("5. Takaisin")
 
     while True:
@@ -49,8 +47,7 @@ def ratkaise_murhaaja():
             print("Hänen huivinsa löytyi olohuoneesta.")
             print("Todisteet eivät osoita, että Elisa olisi käynyt työhuoneessa.")
             print("Peli alkaa alusta.")
-
-            # False kertoo main.py:lle, että peli pitää aloittaa alusta.
+            # False kertoo paavalikko.py:lle, että peli pitää aloittaa alusta.
             return False
 
         elif valinta == "2":
@@ -66,17 +63,18 @@ def ratkaise_murhaaja():
             print("\nSyytät Viktor Salosta.")
             print("\nVäärä syytös!")
             print("Viktorilla oli motiivi ja hän kävi työhuoneessa.")
-            print("Hän kuitenkin poistui työhuoneesta jo kello 22.19.")
+            print("Hän kuitenkin poistui työhuoneesta jo kello 22.20.")
             print("Sähkökatko alkoi vasta kello 22.21.")
             print("Viktor ei siis voinut olla työhuoneessa murhan aikana.")
             print("Peli alkaa alusta.")
             return False
 
         elif valinta == "4":
-            print("\nSyytät Sofia Niemeä.")
-            print("\nSofia Niemi oli murhaaja.")
-            print("Hän käytti avainkorttia päästäkseen työhuoneeseen")
-            print("sähkökatkon aikana ja varasti USB-muistitikun.")
+            print("Sofia Niemi oli murhaaja.")
+            print("\nSofialla oli pääsy työhuoneeseen avainkortillaan.")
+            print("\nHänen kertomuksensa teestä ei pitänyt paikkaansa.")
+            print("Sähkökatkon aikana hänellä oli mahdollisuus päästä työhuoneeseen")
+            print("ja varastaa USB-muistitikku.")
             print("\nONNEKSI OLKOON!")
             print("Ratkaisit Edvard Kiven murhan.")
 
@@ -88,11 +86,11 @@ def ratkaise_murhaaja():
                 valinta = input("Valitse: ")
 
                 if valinta == "1":
-                    # False kertoo main.py:lle, että aloitetaan uusi peli.
+                    # False kertoo paavalikko.py:lle, että peli pitää aloittaa alusta.
                     return False
 
                 elif valinta == "2":
-                    # True kertoo main.py:lle, että peli voidaan lopettaa.
+                    # True kertoo paavalikko.py:lle, että peli voidaan lopettaa.
                     return True
 
                 else:
@@ -102,7 +100,6 @@ def ratkaise_murhaaja():
             print("\nPalaat päävalikkoon.")
             # None kertoo paavalikko.py:lle, että pelaaja haluaa palata päävalikkoon.
             return None
-
         else:
             print("\nTuntematon valinta.")
             print("Valitse numero 1-5.")

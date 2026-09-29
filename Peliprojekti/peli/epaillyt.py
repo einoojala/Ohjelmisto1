@@ -8,7 +8,7 @@ class Epailty:
 
     # Määrittää, miten epäilty näytetään pelaajalle.
     def __str__(self):
-        return f"Nimi: {self.nimi}, \nIkä: {self.ikä} vuotta vanha, \nRooli: {self.rooli} \nMotiivi: {self.motiivi}"
+        return f"Nimi: {self.nimi} \nIkä: {self.ikä} vuotta vanha \nRooli: {self.rooli} \nMotiivi: {self.motiivi}"
 
 # Luodaan pelin epäillyt ja annetaan jokaiselle omat tiedot.
 elisa = Epailty("Elisa Kivi", 48, "Edvardin vaimo", "Elisa ja Edvard olivat riidelleet")

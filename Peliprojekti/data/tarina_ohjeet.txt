@@ -2,53 +2,62 @@
                             MURHA KARTANOSSA
 ==========================================================================
 On myöhäinen syysilta Kiven kartanolla.
-Kartanon omistaja on tunnettu menestyvä
-yrittäjä Edvard Kivi. Hänen yrityksensä 
-kehittää uusiutuvaan energiaan liittyvää 
+Kartanon omistaja on tunnettu ja menestynyt
+yrittäjä Edvard Kivi. Hänen yrityksensä
+kehittää uusiutuvaan energiaan liittyvää
 teknologiaa.
 
 Tänä iltana Edvard on kutsunut kartanoon
 neljä ihmistä:
-Helena Kivi – Edvardin vaimo.
+Elisa Kivi – Edvardin vaimo.
 James Kivi – Edvardin veli.
 Sofia Niemi – Edvardin sihteeri.
 Viktor Salonen – Edvardin liikekumppani.
 
 Illan aikana Edvard kertoo vieraille
-tärkeän uutisen. Hän on kehittänyt 
-uuden aurinkopaneelin, joka pystyy tuottamaan 
-huomattavasti enemmän sähköä kuin tavallinen 
+tärkeän uutisen. Hän on kehittänyt
+uuden aurinkopaneelin, joka pystyy tuottamaan
+huomattavasti enemmän sähköä kuin tavallinen
 samankokoinen paneeli.
 
 Edvard aikoo esitellä keksinnön seuraavana
-päivänä, ja sen on huhuttu mullistavan 
+päivänä. Keksinnön uskotaan mullistavan
 uusiutuvan energian talteenoton ja käytön.
-Illallisen jälkeen Edvard menee työhuoneeseensa
-ja hetkeä myöhemmin koko kartano pimenee.
+Kaikki eivät kuitenkaan vaikuta olevan
+uutisesta yhtä tyytyväisiä.
 
-Sähköt ovat poissa vain muutaman minuutin.
-Kun valot palaavat, Edvard löytyy työhuoneestaan 
-kuolleena. Hänen työpöydällään ollut 
-USB-muistitikku on kadonnut. Tikulle oli 
-tallennettu uuden aurinkopaneelin tärkeät 
-tutkimustiedot.
+Elisa ja Edvard ovat riidelleet viime aikoina 
+useammin kuin tavallisesti. James on ollut kiinnostunut 
+siitä, kuinka paljon uudella teknologialla voisi
+ansaita. Viktor puolestaan on vaatinut suurempaa
+osuutta yrityksen tulevista tuotoista. 
+Sofia on viime aikoina ollut eri mieltä Edvardin
+kanssa siitä, kuinka uuden teknologian tutkimusta
+pitäisi jatkossa käyttää.
+
+Illallisen jälkeen Edvard menee työhuoneeseensa
+ja hetkeä myöhemmin koko kartano pimenee. sähköt 
+ovat poissa vain muutaman minuutin. Kun valot palaavat, 
+Edvard löytyy työhuoneestaan kuolleena. Hänen työpöydällään 
+ollut USB-muistitikku on kadonnut. Tikulle oli tallennettu uuden
+aurinkopaneelin tärkeät tutkimustiedot.
 
 Poliisi ei pääse paikalle ennen aamua.
-Sinun tehtäväsi on selvittää, 
-Kuka murhasi Edvard Kiven?
-
+Tehtävänäsi on selvittää, Kuka murhasi Edvard Kiven.
 Onnea tehtävään!
+
 ==========================================================================
                                 OHJEET
 ==========================================================================
 PELINOHJEET
-Edvard Kivi on löydetty kuolleena työhuoneesta.
-Sinun tehtäväsi on selvittää murhaaja
+- Edvard Kivi on löydetty kuolleena työhuoneesta,
+  ja tehtäväsi on selvittää, kuka hänet murhasi.
 
 PELIN TOIMINNOT:
     TUTKI HUONEITA
-    - Tutki kartanon eri huoneita ja lue niiden kuvauksia. 
-    - Kun tutkit huonetta tarkemmin, voit löytää uusia vihjeitä.
+    - Kun tutkit huoneen tarkemmin, voit löytää uuden vihjeen.
+    - Voit tutkia jokaisen huoneen tarkemmin vain kerran.
+    - Kaikki löytämäsi vihjeet tallennetaan.
 
     KERÄÄ ESINEITÄ
     - Huoneista löytyy esineitä, jotka voivat auttaa tutkimuksessa.
@@ -64,12 +73,18 @@ PELIN TOIMINNOT:
         - James Kivi
         - Viktor Salonen
         - Sofia Niemi
-    - Tutki heidän tietojaan. 
     - Mieti kenellä voisi olla motiivi ja mahdollisuus syyllistyä murhaan.
 
     TUTKI VIHJEITÄ
-    - Kaikki löytämäsi vihjeet tallennetaan.
     - Voit tarkastella vihjeitä uudelleen.
+
+    TUTKI TAPAHTUMA-AIKOJA
+    - Voit tarkastella illan tapahtumien aikajanaa.
+    - Aikajana antaa vihjeitä mysteerin ratkaisemiseen.
+
+    TUTKINNAN TILANNE
+    - Näet, kuinka monta vihjettä, esinettä, huonetta ja epäiltyä olet tutkinut.
+    - Näet myös nykyisen sijaintisi ja PIN-koodin tilanteen.
 
     RATKAISE PIN-KOODI
     - Edvardin tietokone on lukittu kuusinumeroisella PIN-koodilla.
@@ -80,8 +95,10 @@ PELIN TOIMINNOT:
     - Tutki kaikki vihjeet huolellisesti ennen lopullista arvausta.
 
     VAROITUS
-    - Peli alkaa alusta, jos annat väärän PIN-koodin,
-    - Peli alkaa alusta, Jos syytät väärää henkilöä
+    - Peli alkaa alusta, jos annat väärän PIN-koodin tai syytät väärää henkilöä.
+
+    OHJEET
+    - Voit avata nämä peliohjeet uudelleen päävalikosta.
 
     TALLENTAMINEN
     - Voit tallentaa pelin päävalikon kautta, ja jatkaa myöhemmin.

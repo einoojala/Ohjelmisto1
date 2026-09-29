@@ -1,6 +1,6 @@
 from peli import Pelaaja
 from peli.huoneet import tyohuone, kirjasto, keittio, olohuone, ruokasali
-from peli.esineet import tutkimuspaperi, avainkortti, usb_kotelo, kuppi, muistilappu
+from peli.esineet import tutkimuspaperi, avainkortti, usb_kotelo, kuppi, paivakirja, muistilappu
 from peli.epaillyt import epaillyt
 
 # --------------------------------------------------
@@ -64,45 +64,42 @@ def lataa_peli():
 
     # Luodaan sanakirja tallennustiedoston tietoja varten.
     tiedot = {}
-
-    # Käydään kaikki tallennustiedoston rivit läpi.
+    # Aloitetaan tallennustiedoston rivien käsittely ensimmäisestä rivistä.
     i = 0
 
     while i < len(rivit):
         rivi = rivit[i].strip()
-
         # Ohitetaan tyhjät rivit.
         if not rivi:
             i += 1
             continue
 
+        # Tarkistetaan, alkaako tässä kohtaa tallennustiedoston vihjelista.
         if rivi == "vihjeet:":
             vihjeet = []
             i += 1
 
+            # Luetaan vihjelistan kaikki rivit, jotka alkavat "- "-merkeillä.
             while i < len(rivit):
                 vihjerivi = rivit[i].strip()
 
+                # Poistetaan rivin alusta "- " ennen vihjeen tallentamista.
                 if vihjerivi.startswith("- "):
                     vihje = vihjerivi[2:]
                     vihjeet.append(vihje)
                     i += 1
                 else:
+                    # Vihjelista päättyy, kun seuraava rivi ei ala "- "-merkeillä.
                     break
 
             # Tallennetaan vihjelista tiedot-sanakirjaan.
             tiedot["vihjeet"] = vihjeet
-
             # Jatketaan seuraavan tiedon käsittelyyn.
             continue
 
         # Muut tallennustiedot käsitellään normaalisti.
         avain, arvo = rivi.split(":", 1)
-
-        # Tallennetaan avain ja arvo sanakirjaan.
         tiedot[avain] = arvo
-
-        # Siirrytään seuraavalle riville.
         i += 1
 
     # Luodaan uusi Pelaaja-olio tallennettujen tietojen perusteella.
@@ -126,6 +123,7 @@ def lataa_peli():
         "Yrityksen avainkortti": avainkortti,
         "USB-kotelo": usb_kotelo,
         "Teekuppi": kuppi,
+        "Päiväkirja": paivakirja,
         "Muistilappu": muistilappu}
 
     # Jos inventaariossa on tallennettuja esineitä, palautetaan ne inventaarioon.

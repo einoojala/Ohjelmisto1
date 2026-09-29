@@ -1,5 +1,5 @@
 # Tuodaan huoneissa käytettävät esineet.
-from peli.esineet import tutkimuspaperi, avainkortti, usb_kotelo, kuppi, muistilappu
+from peli.esineet import tutkimuspaperi, avainkortti, usb_kotelo, kuppi, paivakirja, muistilappu
 
 # Luokka, jonka avulla luodaan pelin huoneet.
 class Huone:
@@ -15,57 +15,61 @@ class Huone:
 
     # Antaa pelaajalle mahdollisuuden tutkia huonetta tarkemmin.
     def tutki_tarkemmin(self, pelaaja):
+        # Saman huoneen tarkempi vihje voidaan tutkia vain kerran.
+        if self in pelaaja.tutkitut_huoneet:
+            print("\nOlet jo tutkinut tämän huoneen tarkemmin.")
+            return
+
         while True:
             vastaus = input("\nHaluatko tutkia huonetta tarkemmin? (k/e): ").lower()
+
             if vastaus == "k":
                 print("\n---- TARKEMPI TUTKIMUS ----")
                 print(self.vihje)
 
-                # Lisätään huoneesta löytyvä vihje pelaajan vihjelistaan.
                 pelaaja.lisaa_vihje(self.vihje)
+                pelaaja.tutkitut_huoneet.append(self)
+
                 print("\nPoistut huoneesta.")
                 return
-
             elif vastaus == "e":
                 print("\nPoistut huoneesta.")
                 return
             else:
-                # Jos vastaus ei ole sallittu, kysytään uudelleen.
                 print("Vastaa k tai e.")
-
 # --------------------------------------------------
 # PELIN HUONEET
 # --------------------------------------------------
 tyohuone = Huone("Työhuone",
 """Edvardin työhuone on suuri ja hämärä.
 Pöydällä on tietokone ja useita papereita.
-Seinällä oleva kello on pysähtynyt.""",
-"""Työhuoneen pöydän päiväkirjassa on Edvardin viimeinen merkintä, jossa on kellonaika 22.21. Sen jälkeen ei ole muita merkintöjä.""",
+Seinällä oleva kello on pysähtynyt aikaan 22:21.""",
+"""Edvardin pöydällä on Viktorilta viesti: Jos et anna minulle osuuttani, kerron kaikille tutkimuksestasi.""",
  [tutkimuspaperi, usb_kotelo])
 
 kirjasto = Huone("Kirjasto",
 """Kirjastossa on korkeat kirjahyllyt ja vanha kirjoituspöytä.
 Jotkut kirjat näyttävät olevan hieman vinossa.""",
-"""Yhden tutkimuskansion välistä löytyy merkintä: 'Ensimmäinen toimiva prototyyppi valmistui vuonna 2024.'"""
-, [])
+"""Edvardin tutkimuskansiosta löytyy Jamesin käsialaa: Paljonko tästä teknologiasta voisi saada rahaa?""",
+[paivakirja])
 
 keittio = Huone("Keittiö",
 """Keittiössä on vielä illallisen jälkiä.
 Pöydällä on astioita ja vedenkeitin.
 Huoneessa on hieman outo tunnelma.""",
-"""Vedenkeitin on kylmä ja yksi kupeista on täysin kuiva. Seinäkello näyttää aikaa 22.17.""", 
+"""Sofia kertoi valmistaneensa teetä ennen sähkökatkoa, mutta vedenkeitin on kylmä ja kuppi kuiva.""", 
 [avainkortti, kuppi])
 
 olohuone = Huone("Olohuone",
 """Olohuoneessa on suuri sohva, takka ja vanha taulu.
 Kaikki näyttää ensisilmäyksellä normaalilta.""",
-"""Sohvan vierestä löytyy Elisan huivi ja pyödän lasi on lähes koskematon. Taulussa on merkintä: kuusi vuotta sitten kaikki muuttui""", 
+"""Elisan huivi löytyy sohvan vierestä. Huivin reunassa on tumma tahra. Taulussa on merkintä: kuusi vuotta sitten kaikki muuttui.""", 
 [muistilappu])
 
 ruokasali = Huone("Ruokasali",
 """Ruokasalissa on pitkä pöytä, jonka ympärillä on viisi tuolia.
 Illallisen jäljet ovat edelleen näkyvissä.""",
-"""Illallisen jälkeen Edvardin paikalla on pieni lappu. Lapussa lukee: Uusi paneeli: 28 %, Vanha paneeli: 20 %""",
+"""Illallisen jälkeen Edvardin paikalla on lappu: Uusi paneeli 28 %, vanha paneeli 20 %. Tehokkuusero kertoo numeron.""",
 [])
 
 # Lista kaikista pelin huoneista.
@@ -75,7 +79,7 @@ huoneet = [tyohuone, kirjasto, keittio, olohuone, ruokasali]
 # Palauttaa huoneiden esineet alkuperäiseen tilaansa uuden pelin alussa.
 def nollaa_huoneet():
     tyohuone.esineet = [tutkimuspaperi, usb_kotelo]
-    kirjasto.esineet = []
+    kirjasto.esineet = [paivakirja]
     keittio.esineet = [avainkortti, kuppi]
     olohuone.esineet = [muistilappu]
     ruokasali.esineet = []

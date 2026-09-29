@@ -28,21 +28,22 @@ murhaajasta.
 Jos pelaaja syöttää väärän PIN-koodin tai syyttää väärää 
 henkilöä, peli alkaa uudelleen.
 
-# Toimintaperiaatteet/toiminnallisuudet
+# Toiminnallisuudet
 
 Peli toimii tekstipohjaisen päävalikon kautta. 
 Päävalikon toiminnot:
-
 1. Tutki huoneita
 2. Kerää esineitä
 3. Katso inventaariota
 4. Tutki epäiltyjä
 5. Tutki vihjeitä
-6. Ratkaise PIN-koodi
-7. Ratkaise murhaaja
-8. Ohjeet
-9. Tallenna peli
-10. Lopeta
+6. Tutki tapahtuma-aikoja
+7. Ratkaise PIN-koodi
+8. Ratkaise murhaaja
+9. Tutkinnan tilanne
+10. Ohjeet
+11. Tallenna peli
+12. Lopeta
 
 Pelaaja voi liikkua eri huoneissa ja tutkia niitä tarkemmin. 
 Huoneista voi löytyä esineitä ja vihjeitä, joita voidaan 
@@ -50,23 +51,23 @@ käyttää myöhemmin murhan ratkaisemiseen. Pelaajan inventaario
 pitää kirjaa kerätyistä esineistä ja vihjelista löydetyistä 
 vihjeistä.
 
-Pelissä on useita erilaisia reittejä vihjeiden löytämiseen
-ja murhan ratkaisemiseen. Pelaaja voi esimerkiksi aloittaa 
-tutkimisen huoneiden vihjeistä, tapahtumien aikajärjestyksestä 
-tai epäillyistä. Eri reiteiltä löytyy vihjeitä eri järjestyksessä, 
-mutta kaikkien reittien lopussa pelaajan täytyy ratkaista 
-tietokoneen PIN-koodi. PIN-koodin ratkaisemisen jälkeen pelaaja 
-saa salaisen viestin ja voi tehdä lopullisen arvauksen murhaajasta.
+Pelissä on useita erilaisia tapoja löytää vihjeitä. 
+Pelaaja voi päättää itse, missä järjestyksessä hän 
+tutkii huoneita, esineitä ja epäiltyjä. Vihjeitä voi 
+siis löytyä eri järjestyksessä, mutta kaikkien etenemistapojen 
+lopussa pelaajan täytyy ratkaista tietokoneen PIN-koodi.
+PIN-koodin ratkaisemisen jälkeen pelaaja saa salaisen viestin 
+ja voi tehdä lopullisen arvauksen murhaajasta
 
 Pelissä on myös tallennus- ja lataustoiminto. 
-Pelaajan nimi, ikä, sijainti, inventaario, löydetyt vihjeet
-sekä PIN-koodin ratkaisemisen tila tallennetaan erilliseen 
-tekstitiedostoon. Näin peliä voi jatkaa myöhemmin.
+Pelaajan nimi, ikä, sijainti, inventaario, löydetyt vihjeet, 
+tutkitut huoneet, tutkitut epäillyt sekä PIN-koodin ratkaisemisen tila 
+tallennetaan erilliseen tekstitiedostoon. Näin peliä voi jatkaa myöhemmin.
 
-Peli on jaettu useisiin Python-tiedostoihin ja luokkiin. 
-Pelaajaa, huoneita, esineitä ja epäiltyjä käsitellään omilla 
-luokillaan. Lisäksi pelin tallennus ja päävalikko on erotettu 
-omiin moduuleihinsa. Peli käynnistettään main.py tiedostosta.
+Peli on jaettu useisiin Python-tiedostoihin ja moduuleihin. Pelaajaa, 
+huoneita, esineitä ja epäiltyjä käsitellään omissa luokissaan.
+Pelin tallennus, PIN-koodin ja murhan ratkaiseminen ja päävalikko on 
+toteutettu omissa moduuleissaan. Peli käynnistetään main.py-tiedostosta.
 
 # Kestävän kehityksen näkökulma
 
@@ -82,5 +83,5 @@ Näin kestävän kehityksen teema ei ole vain erillinen osa pelissä,
 vaan se on osa pelin tarinaa, vihjeitä ja mysteerin ratkaisemista.
 
 Pelin avulla pelaaja tutustuu uusiutuvaan energiaan ja siihen, 
-miten esimerkiksi aurinkoenergian talteenottoa 
-pyritään kehittämään entistä tehokkaammaksi.
+miten esimerkiksi aurinkoenergian talteenottoa pyritään kehittämään 
+entistä tehokkaammaksi.

@@ -7,9 +7,11 @@ from peli.ratkaisut import ratkaise_murhaaja, ratkaise_pin_koodi
 # HUONEIDEN TUTKIMINEN
 # --------------------------------------------------
 # Funktio antaa pelaajalle mahdollisuuden valita tutkittavan huoneen.
-def tutki_huonetta(pelaaja):
+# Otsikkoa voidaan vaihtaa, kun huoneeseen siirrytään esinevalikosta.
+def tutki_huonetta(pelaaja, otsikko="TUTKI HUONEITA"):
     while True:
-        print("\n--- TUTKI HUONEITA ---")
+        # Näytetään huonevalikon otsikko.
+        print(f"\n--- {otsikko} ---")
         # enumerate antaa jokaiselle huoneelle numeron, jotta pelaaja voi valita huoneen numerolla.
         for numero, huone in enumerate(huoneet, 1):
             print(f"{numero}. {huone.nimi}")
@@ -24,20 +26,13 @@ def tutki_huonetta(pelaaja):
             print("Anna numero.")
             continue
         
-        # Muutetaan valinta kokonaisluvuksi.
         numero = int(valinta)
-
         # Tarkistetaan, että valittu numero vastaa olemassa olevaa huonetta.
         if 1 <= numero <= len(huoneet):
             # Listan indeksit alkavat nollasta, joten käyttäjän numerosta vähennetään yksi.
             huone = huoneet[numero - 1]
             # Tallennetaan pelaajan nykyiseksi sijainniksi valittu huone.
             pelaaja.sijainti = huone
-
-            # Lisätään muistiin, että huone on tutkittu
-            if huone not in pelaaja.tutkitut_huoneet:
-                pelaaja.tutkitut_huoneet.append(huone)
-                
             print(huone)
             huone.tutki_tarkemmin(pelaaja)
 
@@ -47,7 +42,6 @@ def tutki_huonetta(pelaaja):
 # --------------------------------------------------
 # ESINEIDEN KERÄÄMINEN
 # --------------------------------------------------
-
 # Funktio antaa pelaajalle mahdollisuuden ottaa esineitä ja lisätä ne inventaarioon.
 def lisaa_esine(pelaaja):
     # Pelaajan täytyy olla jossain huoneessa ennen kuin hän voi kerätä esineitä.
@@ -57,7 +51,7 @@ def lisaa_esine(pelaaja):
         return
 
     while True:
-        print("\n--- ESINEET ---")
+        print(f"\n--- ESINEET: {pelaaja.sijainti.nimi.upper()} ---")
         # Haetaan pelaajan nykyisen huoneen esinelista.
         esineet = pelaaja.sijainti.esineet
         if not esineet:
@@ -67,11 +61,17 @@ def lisaa_esine(pelaaja):
         # enumerate antaa jokaiselle esineelle numeron, jotta pelaaja voi valita esineen numerolla.
         for numero, esine in enumerate(esineet, 1):
             print(f"{numero}. {esine.nimi}")
+        print("v. Vaihda huonetta")    
         print("x. Takaisin")
 
         valinta = input("Minkä esineen haluat ottaa (esineen numero)? ")
         # x-valinnalla palataan takaisin ilman esineen ottamista.
+        # v-valinnalla voidaan vaihtaa huonetta.
         if valinta.lower() == "x":
+            return
+        # Avataan huonevalikko huoneen vaihtamista varten.
+        if valinta.lower() == "v":
+            tutki_huonetta(pelaaja, "VAIHDA HUONETTA")
             return
 
         # Tarkistetaan, että käyttäjä antoi numeron.
@@ -79,11 +79,10 @@ def lisaa_esine(pelaaja):
             print("Anna numero.")
             continue
 
-        # Muutetaan valinta kokonaisluvuksi.
         numero = int(valinta)
         # Tarkistetaan, että valittu numero vastaa olemassa olevaa esinettä.
         if 1 <= numero <= len(esineet):
-        # Listan indeksit alkavat nollasta, joten käyttäjän numerosta vähennetään yksi.
+            # Listan indeksit alkavat nollasta, joten käyttäjän numerosta vähennetään yksi.
             esine = esineet[numero - 1]
             pelaaja.lisaa_esine(esine)
             # Poistetaan esine huoneesta, koska pelaaja otti sen mukaan.
@@ -114,9 +113,7 @@ def nayta_epaillyt(pelaaja):
             print("Anna numero.")
             continue
 
-        # Muutetaan valinta kokonaisluvuksi.
         numero = int(valinta)
-
         # Tarkistetaan, että valittu numero vastaa olemassa olevaa epäiltyä.
         if 1 <= numero <= len(epaillyt):
             # Listan indeksit alkavat nollasta, joten käyttäjän numerosta vähennetään yksi.
@@ -124,9 +121,9 @@ def nayta_epaillyt(pelaaja):
 
             if epailty not in pelaaja.tutkitut_epaillyt:
                 pelaaja.tutkitut_epaillyt.append(epailty)
-
             print("\n--- EPÄILTY ---")
             print(epailty)
+            
         else:
             print("Anna luku väliltä 1-4.")
 
@@ -162,10 +159,15 @@ def nayta_ohjeet():
 # --------------------------------------------------
 def nayta_tapahtumat():
     print("\n--- TAPAHTUMAT ---")
-    print("22.10 - James nähtiin kirjastossa.")
-    print("22.19 - Viktor poistui työhuoneesta.")
-    print("22.21 - Sähkökatko alkoi.")
-    print("22.25 - Edvard löydettiin kuolleena.")
+    print("21:50 - Elisa ja Edvard riitelivät kahdestaan.")
+    print("21:55 - Viktor ja Edvard keskustelivat kiivaasti työhuoneessa.")
+    print("22:10 - James nähtiin kirjastossa.")
+    print("22:18 - Sofia nähtiin keittiössä.")
+    print("22:19 - James palasi ruokasaliin.")
+    print("22:19 - Elisa palasi ruokasaliin.")
+    print("22:20 - Viktor poistui työhuoneesta.")
+    print("22:21-22:25 - Kartanossa oli täysin pimeää.")
+    print("22:25 - Edvard löydettiin kuolleena.")   
 
 # --------------------------------------------------
 # PÄÄVALIKKO
@@ -185,7 +187,7 @@ def paavalikko(pelaaja):
         print("6. Tutki tapahtuma-aikoja")
         print("7. Ratkaise PIN-koodi")
         print("8. Ratkaise murhaaja")
-        print("9. Tutkinna tilanne")
+        print("9. Tutkinnan tilanne")
         print("10. Ohjeet")
         print("11. Tallenna peli")
         print("12. Lopeta")
@@ -215,7 +217,7 @@ def paavalikko(pelaaja):
         elif komento == "7":
             tulos = ratkaise_pin_koodi(pelaaja)
             # Jos PIN-koodin ratkaisu epäonnistui, palautetaan False main.py:lle ja peli alkaa alusta.
-            if tulos == False:
+            if tulos is False:
                 return False
 
         # Murhaajan ratkaiseminen.
@@ -224,10 +226,10 @@ def paavalikko(pelaaja):
             if pelaaja.pin_ratkaistu:
                 tulos = ratkaise_murhaaja()
                 # False tarkoittaa, että peli aloitetaan uudelleen.
-                if tulos == False:
+                if tulos is False:
                     return False
                 # True tarkoittaa, että pelaaja voitti ja haluaa lopettaa pelin.
-                elif tulos == True:
+                elif tulos is True:
                     return True
             else:
                 print("\nEt voi vielä ratkaista murhaajaa.")
