@@ -1,8 +1,8 @@
-# MURHA KARTANOSSA
+# **MURHA KARTANOSSA**
 
 Tekijä: Eino Ojala
 
-# Pelin idea
+# **Pelin idea**
 
 Murha kartanossa on tekstipohjainen murhamysteeripeli, 
 jossa pelaaja toimii tutkijana ja yrittää selvittää 
@@ -12,7 +12,7 @@ ja vihjeitä, joiden avulla pelaaja voi selvittää
 tapahtumien kulun. Peli perustuu tutkimiseen, 
 päättelyyn ja erilaisten vihjeiden yhdistämiseen.
 
-# Pelin tavoite
+# **Pelin tavoite**
 
 Pelaajan tavoitteena on selvittää, 
 kuka murhasi Edvard Kiven. Pelaajan täytyy tutkia 
@@ -28,7 +28,7 @@ murhaajasta.
 Jos pelaaja syöttää väärän PIN-koodin tai syyttää väärää 
 henkilöä, peli alkaa uudelleen.
 
-# Toiminnallisuudet
+# **Toiminnallisuudet**
 
 Peli toimii tekstipohjaisen päävalikon kautta. 
 Päävalikon toiminnot:
@@ -69,7 +69,7 @@ huoneita, esineitä ja epäiltyjä käsitellään omissa luokissaan.
 Pelin tallennus, PIN-koodin ja murhan ratkaiseminen ja päävalikko on 
 toteutettu omissa moduuleissaan. Peli käynnistetään main.py-tiedostosta.
 
-# Kestävän kehityksen näkökulma
+# **Kestävän kehityksen näkökulma**
 
 Pelissä on mukana YK:n kestävän kehityksen tavoite 7, 
 Edullista ja puhdasta energiaa. Teema liittyy suoraan 
