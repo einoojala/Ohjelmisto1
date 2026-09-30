@@ -1,9 +1,9 @@
 from peli.esineet import tietokone
 from peli.epaillyt import epaillyt
 
-# --------------------------------------------------
+# ==================================================
 # PIN-KOODIN RATKAISEMINEN
-# --------------------------------------------------
+# ==================================================
 # Käynnistää tietokoneen PIN-koodin ratkaisemisen.
 def ratkaise_pin_koodi(pelaaja):
     print("\n--- RATKAISE MYSTEERI ---")
@@ -19,9 +19,9 @@ def ratkaise_pin_koodi(pelaaja):
     if tulos is False:
         return False
     
-# --------------------------------------------------
+# ==================================================
 # MURHAAJAN RATKAISEMINEN
-# --------------------------------------------------
+# ==================================================
 # Käynnistää murhaajan ratkaisemisen.
 def ratkaise_murhaaja():
     print("\n--- RATKAISE MURHAAJA ---")

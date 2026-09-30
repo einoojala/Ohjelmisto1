@@ -1,4 +1,3 @@
-# Luokka tavallisille pelissä oleville esineille.
 class Esine:
     def __init__(self, nimi, kuvaus, vihje):
         self.nimi = nimi
@@ -57,7 +56,6 @@ class LukittuEsine(Esine):
 # --------------------------------------------------
 # Esineet
 # --------------------------------------------------
-
 tutkimuspaperi = Esine("Tutkimuspaperi",
 """Paperissa on aurinkopaneeliin liittyviä laskelmia.
 Muistiinpanoissa pohditaan, miten aurinkoenergia voisi vähentää riippuvuutta fossiilisista polttoaineista.

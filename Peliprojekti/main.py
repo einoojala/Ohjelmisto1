@@ -5,23 +5,23 @@ from peli.paavalikko import paavalikko, nayta_ohjeet
 from peli.tallennus import lataa_peli
 from peli.huoneet import nollaa_huoneet
 
-# Luo uuden pelaajan ja palauttaa Pelaaja-olion.
 def uusi_pelaaja():
     nimi = input("Mikä sinun nimesi on? ")
 
-    # Ikää kysytään, kunnes pelaaja antaa sen numerona.
     while True:
         try:
             ika = int(input("Kuinka vanha olet? "))
-            break
+            if ika >= 100:
+                print("\nLuulen, että annoit väärän iän.")
+                continue
+            if ika < 12:
+                print("\nOlet liian nuori pelaamaan tätä peliä.")
+                exit()
+            else:
+                break
 
         except ValueError:
             print("Anna ikä numerona.")
-
-    # Alle 12-vuotias ei voi aloittaa peliä.
-    if ika < 12:
-        print("\nOlet liian nuori pelaamaan tätä peliä.")
-        exit()
 
     # Luodaan uusi pelaaja ja palautetaan huoneet alkuperäiseen tilaansa.
     pelaaja = Pelaaja(nimi, ika)
@@ -69,10 +69,7 @@ def main():
             pelaaja = uusi_pelaaja()
 
         print(f"\nTervetuloa, {pelaaja.nimi}!")
-
-        # Näytetään pelin tarina ja ohjeet.
         nayta_ohjeet()
-
         # Käynnistetään päävalikko ja annetaan sille pelaajan tiedot.
         tulos = paavalikko(pelaaja)
 
@@ -89,6 +86,7 @@ def main():
             continue
         # Jos paavalikko ei palauttanut False-arvoa, peli päättyy ja while-silmukka lopetetaan.
         break
+
 # Käynnistetään peli vain, kun main.py suoritetaan suoraan.
 if __name__ == "__main__":
     main()

@@ -1,7 +1,5 @@
-# Tuodaan huoneissa käytettävät esineet.
 from peli.esineet import tutkimuspaperi, avainkortti, usb_kotelo, kuppi, paivakirja, muistilappu
 
-# Luokka, jonka avulla luodaan pelin huoneet.
 class Huone:
     def __init__(self, nimi, kuvaus, vihje, esineet):
         self.nimi = nimi
@@ -37,9 +35,9 @@ class Huone:
                 return
             else:
                 print("Vastaa k tai e.")
-# --------------------------------------------------
+# ==================================================
 # PELIN HUONEET
-# --------------------------------------------------
+# ==================================================
 tyohuone = Huone("Työhuone",
 """Edvardin työhuone on suuri ja hämärä.
 Pöydällä on tietokone ja useita papereita.
@@ -72,8 +70,7 @@ Illallisen jäljet ovat edelleen näkyvissä.""",
 """Illallisen jälkeen Edvardin paikalla on lappu: Uusi paneeli 28 %, vanha paneeli 20 %. Tehokkuusero kertoo numeron.""",
 [])
 
-# Lista kaikista pelin huoneista.
-# Listaa käytetään päävalikossa huoneen valitsemiseen.
+# Lista kaikista pelin huoneista, jota käytetään päävalikossa huoneen valitsemiseen.
 huoneet = [tyohuone, kirjasto, keittio, olohuone, ruokasali]
 
 # Palauttaa huoneiden esineet alkuperäiseen tilaansa uuden pelin alussa.

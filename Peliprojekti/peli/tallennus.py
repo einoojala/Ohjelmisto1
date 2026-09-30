@@ -1,12 +1,11 @@
 from peli import Pelaaja
 from peli.huoneet import tyohuone, kirjasto, keittio, olohuone, ruokasali
 from peli.esineet import tutkimuspaperi, avainkortti, usb_kotelo, kuppi, paivakirja, muistilappu
-from peli.epaillyt import epaillyt
+from peli import epaillyt
 
-# --------------------------------------------------
+# =================================================
 # PELIN TALLENNUS
-# --------------------------------------------------
-# Tallennetaan pelaajan tämänhetkinen pelitilanne save.txt-tiedostoon.
+# =================================================
 def tallenna_peli(pelaaja):
     # Avataan tai luodaan tallennustiedosto kirjoittamista varten. 
     # encoding="utf-8" varmistaa, että suomalaiset merkit tallentuvat oikein.
@@ -15,17 +14,15 @@ def tallenna_peli(pelaaja):
         tiedosto.write(f"nimi:{pelaaja.nimi}\n")
         tiedosto.write(f"ika:{pelaaja.ika}\n")
 
-        # Tarkistetaan pelaajan sijainti ja tallennetaan se.
+        # Tarkistetaan onko pelaajalla sijainti ja tallennetaan se.
         if pelaaja.sijainti is not None:
             tiedosto.write(f"sijainti:{pelaaja.sijainti.nimi}\n")
         else:
-            # Jos pelaaja ei ole vielä ollut missään huoneessa, tallennetaan tyhjä arvo.
             tiedosto.write("sijainti:\n")
 
-        # Tallennetaan inventaarion esineiden nimet.
+        # Käydään läpi pelaajan esineet ja tallennetaan esineiden nimet.
         esineet = []
 
-        # Käydään pelaajan inventaarion esineet läpi.
         for esine in pelaaja.inventaario:
             esineet.append(esine.nimi)
 
@@ -48,12 +45,11 @@ def tallenna_peli(pelaaja):
         # Tallennetaan tieto tutkituista epäillyistä
         tiedosto.write(f"tutkitut_epaillyt:{','.join(epailty.nimi for epailty in pelaaja.tutkitut_epaillyt)}\n")
 
-    # Ilmoitetaan pelaajalle, että tallennus onnistui.
     print("\nPeli tallennettu!")
 
-# --------------------------------------------------
+# ==================================================
 # PELIN LATAAMINEN
-# --------------------------------------------------
+# ==================================================
 # Ladataan aikaisemmin tallennettu peli.
 def lataa_peli():
     # Avataan tallennustiedosto lukemista varten.

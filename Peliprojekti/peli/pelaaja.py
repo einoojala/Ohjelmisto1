@@ -1,4 +1,3 @@
-# Luokka sisältää pelaajan tiedot ja pelaajan toimintoja.
 class Pelaaja:
     def __init__(self, nimi, ika):
         self.nimi = nimi.strip().title()
@@ -33,7 +32,6 @@ class Pelaaja:
             if valinta.lower() == "x":
                 return
             
-            # Tarkistetaan, että valinta on numero.
             if not valinta.isdigit():
                 print("Anna numero.")
                 continue
