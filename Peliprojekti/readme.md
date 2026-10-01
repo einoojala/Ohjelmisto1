@@ -67,7 +67,8 @@ tallennetaan erilliseen tekstitiedostoon. Näin peliä voi jatkaa myöhemmin.
 Peli on jaettu useisiin Python-tiedostoihin ja moduuleihin. Pelaajaa, 
 huoneita, esineitä ja epäiltyjä käsitellään omissa luokissaan.
 Pelin tallennus, PIN-koodin ja murhan ratkaiseminen ja päävalikko on 
-toteutettu omissa moduuleissaan. Peli käynnistetään main.py-tiedostosta.
+toteutettu omissa moduuleissaan. Peli käynnistetään Peliprojekti kansion
+main.py-tiedostosta.
 
 # **Kestävän kehityksen näkökulma**
 
