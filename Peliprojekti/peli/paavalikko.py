@@ -20,6 +20,7 @@ def tutki_huonetta(pelaaja, otsikko="TUTKI HUONEITA"):
 
         if valinta.lower() == "x":
             return
+
         if not valinta.isdigit():
             print("Anna numero.")
             continue
@@ -37,6 +38,7 @@ def tutki_huonetta(pelaaja, otsikko="TUTKI HUONEITA"):
         else:
             print("Anna luku väliltä 1-5.")
 
+
 # ==================================================
 # ESINEIDEN KERÄÄMINEN
 # ==================================================
@@ -50,33 +52,44 @@ def lisaa_esine(pelaaja):
 
     while True:
         print(f"\n--- ESINEET: {pelaaja.sijainti.nimi.upper()} ---")
+
         # Haetaan pelaajan nykyisen huoneen esinelista.
         esineet = pelaaja.sijainti.esineet
+
         if not esineet:
             print("\nTässä huoneessa ei ole kerättäviä esineitä.")
-            return
 
-        # enumerate antaa jokaiselle esineelle numeron, jotta pelaaja voi valita esineen numerolla.
-        for numero, esine in enumerate(esineet, 1):
-            print(f"{numero}. {esine.nimi}")
-        print("v. Vaihda huonetta")    
+        else:
+            # enumerate antaa jokaiselle esineelle numeron, jotta pelaaja voi valita esineen numerolla.
+            for numero, esine in enumerate(esineet, 1):
+                print(f"{numero}. {esine.nimi}")
+
+        # Huoneen voi vaihtaa aina, vaikka siellä ei olisi enää esineitä.
+        print("v. Vaihda huonetta")
         print("x. Takaisin")
 
-        valinta = input("Minkä esineen haluat ottaa (esineen numero)? ")
+        valinta = input("Valitse: ")
+
         # x-valinnalla palataan takaisin ilman esineen ottamista.
-        # v-valinnalla voidaan vaihtaa huonetta.
         if valinta.lower() == "x":
             return
-        # Avataan huonevalikko huoneen vaihtamista varten.
+
+        # v-valinnalla avataan huonevalikko.
         if valinta.lower() == "v":
             tutki_huonetta(pelaaja, "VAIHDA HUONETTA")
-            return
+            continue
+
+        # Jos huoneessa ei ole esineitä, muita valintoja ei voi tehdä.
+        if not esineet:
+            print("\nValitse v vaihtaaksesi huonetta tai x palataksesi.")
+            continue
 
         if not valinta.isdigit():
             print("Anna numero.")
             continue
 
         numero = int(valinta)
+
         # Tarkistetaan, että valittu numero vastaa olemassa olevaa esinettä.
         if 1 <= numero <= len(esineet):
             # Listan indeksit alkavat nollasta, joten käyttäjän numerosta vähennetään yksi.
@@ -84,6 +97,7 @@ def lisaa_esine(pelaaja):
             pelaaja.lisaa_esine(esine)
             # Poistetaan esine huoneesta, koska pelaaja otti sen mukaan.
             esineet.remove(esine)
+
         else:
             print("Tuntematon valinta.")
 
@@ -124,26 +138,19 @@ def nayta_epaillyt(pelaaja):
             print("Anna luku väliltä 1-4.")
 
 # ==================================================
-# VIHJEIDEN TUTKIMINEN
-# ==================================================
-# Funktio näyttää kaikki vihjeet, jotka pelaaja on tähän mennessä löytänyt.
-def tutki_vihjeita(pelaaja):
-    pelaaja.nayta_vihjeet()
-
-# ==================================================
 # OHJEET
-# -==================================================
-# Näyttää pelin tarinan ja ohjeet
+# ==================================================
+# Näyttää pelin tarinan ja ohjeet.
 def nayta_ohjeet():
     # Avataan tiedosto lukemista varten.
     with open("data/tarina_ohjeet.txt", "r", encoding="utf-8") as tiedosto:
         teksti = tiedosto.read()
 
-    # Jaetaan teksti kappaleisiin tyhjien rivien kohdalta.
+    # Jaetaan teksti kappaleisiin tyhjien rivien (\n\n) kohdalta.
     kappaleet = teksti.split("\n\n")
 
     # Pelaaja painaa Enteriä ennen ohjeiden alkamista.
-    input("\nLue ohjeet painamalla enteriä_ ")
+    input("\nLue ohjeet painamalla enteriä: ")
 
     # Tulostetaan kappaleet yksi kerrallaan.
     for kappale in kappaleet:
@@ -155,15 +162,15 @@ def nayta_ohjeet():
 # ==================================================
 def nayta_tapahtumat():
     print("\n--- TAPAHTUMAT ---")
-    print("21:50 - Elisa ja Edvard riitelivät kahdestaan.")
-    print("21:55 - Viktor ja Edvard keskustelivat kiivaasti työhuoneessa.")
+    print("21:50 - Elisa ja Albert riitelivät kahdestaan.")
+    print("21:55 - Viktor ja Albert keskustelivat kiivaasti työhuoneessa.")
     print("22:10 - James nähtiin kirjastossa.")
     print("22:18 - Sofia nähtiin keittiössä.")
     print("22:19 - James palasi ruokasaliin.")
     print("22:19 - Elisa palasi ruokasaliin.")
     print("22:20 - Viktor poistui työhuoneesta.")
     print("22:21-22:25 - Kartanossa oli täysin pimeää.")
-    print("22:25 - Edvard löydettiin kuolleena.")   
+    print("22:25 - Albert löydettiin kuolleena.")   
 
 # ==================================================
 # PÄÄVALIKKO
@@ -199,28 +206,32 @@ def paavalikko(pelaaja):
         elif komento == "4":
             nayta_epaillyt(pelaaja)
         elif komento == "5":
-            tutki_vihjeita(pelaaja)
+            pelaaja.nayta_vihjeet()
         elif komento == "6":
             nayta_tapahtumat()
+
         elif komento == "7":
+            # Jos PIN-koodin ratkaisu epäonnistuu, aloitetaan peli alusta.
             tulos = ratkaise_pin_koodi(pelaaja)
-            # Jos PIN-koodin ratkaisu epäonnistui, palautetaan False main.py:lle ja peli alkaa alusta.
+
             if tulos is False:
                 return False
-
+            
         elif komento == "8":
             # Murhaajaa saa yrittää ratkaista vasta, kun PIN-koodi on ratkaistu.
             if pelaaja.pin_ratkaistu:
-                tulos = ratkaise_murhaaja()
-                # False tarkoittaa, että peli aloitetaan uudelleen.
+                tulos = ratkaise_murhaaja(pelaaja)
+
                 if tulos is False:
+                    # False palautetaan main.py:lle, jolloin peli aloitetaan alusta.
                     return False
-                # True tarkoittaa, että pelaaja voitti ja haluaa lopettaa pelin.
+                
                 elif tulos is True:
+                    # True palautetaan main.py:lle, jolloin peli voidaan lopettaa.
                     return True
             else:
                 print("\nEt voi vielä ratkaista murhaajaa.")
-                print("Avaa ensin Edvardin tietokone.")
+                print("Avaa ensin Albertin tietokone.")
 
         elif komento == "9":
             pelaaja.nayta_tutkinnan_tilanne()

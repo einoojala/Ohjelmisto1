@@ -15,11 +15,11 @@ päättelyyn ja erilaisten vihjeiden yhdistämiseen.
 # **Pelin tavoite**
 
 Pelaajan tavoitteena on selvittää, 
-kuka murhasi Edvard Kiven. Pelaajan täytyy tutkia 
+kuka murhasi Albert Kiven. Pelaajan täytyy tutkia 
 kartanon huoneita, löytää vihjeitä, 
 kerätä esineitä ja tutkia epäiltyjä.
 
-Pelin lopussa pelaajan täytyy ratkaista Edvardin tietokoneen 
+Pelin lopussa pelaajan täytyy ratkaista Albertin tietokoneen 
 PIN-koodi. Oikean PIN-koodin avulla tietokoneesta löytyy 
 salainen viesti, joka auttaa murhaajan tunnistamisessa. 
 Tämän jälkeen pelaaja voi tehdä lopullisen arvauksen
@@ -73,7 +73,7 @@ toteutettu omissa moduuleissaan. Peli käynnistetään main.py-tiedostosta.
 
 Pelissä on mukana YK:n kestävän kehityksen tavoite 7, 
 Edullista ja puhdasta energiaa. Teema liittyy suoraan 
-pelin juoneen, koska murhan uhri Edvard Kivi työskenteli 
+pelin juoneen, koska murhan uhri Albert Kivi työskenteli 
 uusiutuvan energian ja aurinkopaneelien parissa.
 
 Pelin vihjeissä käsitellään esimerkiksi aurinkopaneelien tehoa

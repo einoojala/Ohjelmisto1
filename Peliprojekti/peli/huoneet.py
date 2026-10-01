@@ -11,7 +11,7 @@ class Huone:
     def __str__(self):
         return f"\n---- {self.nimi.upper()} ----\n{self.kuvaus}"
 
-    # Antaa pelaajalle mahdollisuuden tutkia huonetta tarkemmin.
+    # Antaa pelaajalle mahdollisuuden tutkia huonetta tarkemmin tutki_huonetta funktion yhteydessä.
     def tutki_tarkemmin(self, pelaaja):
         # Saman huoneen tarkempi vihje voidaan tutkia vain kerran.
         if self in pelaaja.tutkitut_huoneet:
@@ -39,16 +39,16 @@ class Huone:
 # PELIN HUONEET
 # ==================================================
 tyohuone = Huone("Työhuone",
-"""Edvardin työhuone on suuri ja hämärä.
+"""Albertin työhuone on suuri ja hämärä.
 Pöydällä on tietokone ja useita papereita.
 Seinällä oleva kello on pysähtynyt aikaan 22:21.""",
-"""Edvardin pöydällä on Viktorilta viesti: Jos et anna minulle osuuttani, kerron kaikille tutkimuksestasi.""",
+"""Albertin pöydällä on Viktorilta viesti: Jos et anna minulle osuuttani, kerron kaikille tutkimuksestasi.""",
  [tutkimuspaperi, usb_kotelo])
 
 kirjasto = Huone("Kirjasto",
 """Kirjastossa on korkeat kirjahyllyt ja vanha kirjoituspöytä.
 Jotkut kirjat näyttävät olevan hieman vinossa.""",
-"""Edvardin tutkimuskansiosta löytyy Jamesin käsialaa: Paljonko tästä teknologiasta voisi saada rahaa?""",
+"""Albertin tutkimuskansiosta löytyy Jamesin käsialaa: Paljonko tästä teknologiasta voisi saada rahaa?""",
 [paivakirja])
 
 keittio = Huone("Keittiö",
@@ -67,7 +67,7 @@ Kaikki näyttää ensisilmäyksellä normaalilta.""",
 ruokasali = Huone("Ruokasali",
 """Ruokasalissa on pitkä pöytä, jonka ympärillä on viisi tuolia.
 Illallisen jäljet ovat edelleen näkyvissä.""",
-"""Illallisen jälkeen Edvardin paikalla on lappu: Uusi paneeli 28 %, vanha paneeli 20 %. Tehokkuusero kertoo numeron.""",
+"""Illallisen jälkeen Albertin paikalla on lappu: Uusi paneeli 28 %, vanha paneeli 20 %. Tehokkuusero kertoo numeron.""",
 [])
 
 # Lista kaikista pelin huoneista, jota käytetään päävalikossa huoneen valitsemiseen.

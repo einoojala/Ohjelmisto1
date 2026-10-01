@@ -3,54 +3,54 @@
 ==========================================================================
 On myöhäinen syysilta Kiven kartanolla.
 Kartanon omistaja on tunnettu ja menestynyt
-yrittäjä Edvard Kivi. Hänen yrityksensä
+yrittäjä Albert Kivi. Hänen yrityksensä
 kehittää uusiutuvaan energiaan liittyvää
 teknologiaa.
 
-Tänä iltana Edvard on kutsunut kartanoon
+Tänä iltana Albert on kutsunut kartanoon
 neljä ihmistä:
-Elisa Kivi – Edvardin vaimo.
-James Kivi – Edvardin veli.
-Sofia Niemi – Edvardin sihteeri.
-Viktor Salonen – Edvardin liikekumppani.
+Elisa Kivi – Albertin vaimo.
+James Kivi – Albertin veli.
+Sofia Niemi – Albertin sihteeri.
+Viktor Salonen – Albertin liikekumppani.
 
-Illan aikana Edvard kertoo vieraille
+Illan aikana Albert kertoo vieraille
 tärkeän uutisen. Hän on kehittänyt
 uuden aurinkopaneelin, joka pystyy tuottamaan
 huomattavasti enemmän sähköä kuin tavallinen
 samankokoinen paneeli.
 
-Edvard aikoo esitellä keksinnön seuraavana
+Albert aikoo esitellä keksinnön seuraavana
 päivänä. Keksinnön uskotaan mullistavan
 uusiutuvan energian talteenoton ja käytön.
 Kaikki eivät kuitenkaan vaikuta olevan
 uutisesta yhtä tyytyväisiä.
 
-Elisa ja Edvard ovat riidelleet viime aikoina 
+Elisa ja Albert ovat riidelleet viime aikoina 
 useammin kuin tavallisesti. James on ollut kiinnostunut 
 siitä, kuinka paljon uudella teknologialla voisi
 ansaita. Viktor puolestaan on vaatinut suurempaa
 osuutta yrityksen tulevista tuotoista. 
-Sofia on viime aikoina ollut eri mieltä Edvardin
+Sofia on viime aikoina ollut eri mieltä Albert
 kanssa siitä, kuinka uuden teknologian tutkimusta
 pitäisi jatkossa käyttää.
 
-Illallisen jälkeen Edvard menee työhuoneeseensa
+Illallisen jälkeen Albert menee työhuoneeseensa
 ja hetkeä myöhemmin koko kartano pimenee. sähköt 
 ovat poissa vain muutaman minuutin. Kun valot palaavat, 
-Edvard löytyy työhuoneestaan kuolleena. Hänen työpöydällään 
+Albert löytyy työhuoneestaan kuolleena. Hänen työpöydällään 
 ollut USB-muistitikku on kadonnut. Tikulle oli tallennettu uuden
 aurinkopaneelin tärkeät tutkimustiedot.
 
 Poliisi ei pääse paikalle ennen aamua.
-Tehtävänäsi on selvittää, Kuka murhasi Edvard Kiven.
+Tehtävänäsi on selvittää, kuka murhasi Albert Kiven.
 Onnea tehtävään!
 
 ==========================================================================
                                 OHJEET
 ==========================================================================
 PELINOHJEET
-- Edvard Kivi on löydetty kuolleena työhuoneesta,
+- Albert Kivi on löydetty kuolleena työhuoneesta,
   ja tehtäväsi on selvittää, kuka hänet murhasi.
 
 PELIN TOIMINNOT:
@@ -87,7 +87,7 @@ PELIN TOIMINNOT:
     - Näet myös nykyisen sijaintisi ja PIN-koodin tilanteen.
 
     RATKAISE PIN-KOODI
-    - Edvardin tietokone on lukittu kuusinumeroisella PIN-koodilla.
+    - Albertin tietokone on lukittu kuusinumeroisella PIN-koodilla.
     - Sen voi ratkaista kartanosta löytyvien vihjeiden avulla.
 
     RATKAISE MURHAAJA

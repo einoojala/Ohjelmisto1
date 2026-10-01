@@ -17,8 +17,8 @@ def uusi_pelaaja():
             if ika < 12:
                 print("\nOlet liian nuori pelaamaan tätä peliä.")
                 exit()
-            else:
-                break
+            
+            break
 
         except ValueError:
             print("Anna ikä numerona.")
@@ -28,12 +28,12 @@ def uusi_pelaaja():
     nollaa_huoneet()
     return pelaaja
 
-# Käynnistää pelin
+# Käynnistää pelin ja hallitsee pelin pääsilmukkaa.
 def main():
     # Pelin pääsilmukka mahdollistaa pelin aloittamisen uudelleen tarvittaessa.
     while True:
         # Tarkistetaan, onko tallennettu peli olemassa. os.path.exists() palauttaa True tai False.
-        if os.path.exists("data/save.txt"):
+        if os.path.exists("data/save.json"):
             print("\n================================")
             print("       TALLENNETTU PELI")
             print("================================")
@@ -51,15 +51,13 @@ def main():
                     except (KeyError, ValueError, IndexError):
                         print("\nTallennustiedosto on virheellinen tai vahingoittunut.")
                         print("Aloitetaan uusi peli.")
-                        os.remove("data/save.txt")
+                        os.remove("data/save.json")
                         pelaaja = uusi_pelaaja()
                         break
 
                 # Luodaan uusi peli ja poistetaan vanha tallennus.
                 elif valinta == "2":
-                    if os.path.exists("data/save.txt"):
-                        os.remove("data/save.txt")
-
+                    os.remove("data/save.json")
                     pelaaja = uusi_pelaaja()
                     break
                 else:
@@ -70,7 +68,7 @@ def main():
 
         print(f"\nTervetuloa, {pelaaja.nimi}!")
         nayta_ohjeet()
-        # Käynnistetään päävalikko ja annetaan sille pelaajan tiedot.
+        # Käynnistetään päävalikko ja annetaan sille pelaajan tiedot. Palautettu tulos tallennetaan muuttujaan.
         tulos = paavalikko(pelaaja)
 
         # Jos päävalikko palauttaa False-arvon, peli aloitetaan alusta.
@@ -81,8 +79,8 @@ def main():
             print("================================")
 
             # Vanha tallennus poistetaan, koska peli aloitetaan kokonaan alusta.
-            if os.path.exists("data/save.txt"):
-                os.remove("data/save.txt")
+            if os.path.exists("data/save.json"):
+                os.remove("data/save.json")
             continue
         # Jos paavalikko ei palauttanut False-arvoa, peli päättyy ja while-silmukka lopetetaan.
         break
