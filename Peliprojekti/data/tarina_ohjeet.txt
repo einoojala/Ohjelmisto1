@@ -17,7 +17,7 @@ Viktor Salonen – Albertin liikekumppani.
 Illan aikana Albert kertoo vieraille
 tärkeän uutisen. Hän on kehittänyt
 uuden aurinkopaneelin, joka pystyy tuottamaan
-huomattavasti enemmän sähköä kuin tavallinen
+huomattavasti enemmän sähköä kuin tavallinen ja
 samankokoinen paneeli.
 
 Albert aikoo esitellä keksinnön seuraavana
@@ -29,20 +29,20 @@ uutisesta yhtä tyytyväisiä.
 Elisa ja Albert ovat riidelleet viime aikoina 
 useammin kuin tavallisesti. James on ollut kiinnostunut 
 siitä, kuinka paljon uudella teknologialla voisi
-ansaita. Viktor puolestaan on vaatinut suurempaa
-osuutta yrityksen tulevista tuotoista. 
-Sofia on viime aikoina ollut eri mieltä Albert
-kanssa siitä, kuinka uuden teknologian tutkimusta
+tienata. Viktor puolestaan on vaatinut suurempaa
+osuutta yrityksen tulevista voitoista. 
+Sofia on ollut viime aikoina eri mieltä Albertin
+kanssa siitä, miten uuden teknologian tutkimusta
 pitäisi jatkossa käyttää.
 
 Illallisen jälkeen Albert menee työhuoneeseensa
-ja hetkeä myöhemmin koko kartano pimenee. sähköt 
+ja hetkeä myöhemmin koko kartano pimenee. Sähköt 
 ovat poissa vain muutaman minuutin. Kun valot palaavat, 
 Albert löytyy työhuoneestaan kuolleena. Hänen työpöydällään 
 ollut USB-muistitikku on kadonnut. Tikulle oli tallennettu uuden
 aurinkopaneelin tärkeät tutkimustiedot.
 
-Poliisi ei pääse paikalle ennen aamua.
+Poliisi ei pääse tulemaan paikalle ennen aamua.
 Tehtävänäsi on selvittää, kuka murhasi Albert Kiven.
 Onnea tehtävään!
 
@@ -50,12 +50,12 @@ Onnea tehtävään!
                                 OHJEET
 ==========================================================================
 PELINOHJEET
-- Albert Kivi on löydetty kuolleena työhuoneesta,
+- Albert Kivi on löydetty kuolleena työhuoneesta
   ja tehtäväsi on selvittää, kuka hänet murhasi.
 
 PELIN TOIMINNOT:
     TUTKI HUONEITA
-    - Kun tutkit huoneen tarkemmin, voit löytää uuden vihjeen.
+    - Kun tutkit huoneen tarkemmin, voit löytää uusia vihjeitä.
     - Voit tutkia jokaisen huoneen tarkemmin vain kerran.
     - Kaikki löytämäsi vihjeet tallennetaan.
 
@@ -84,21 +84,21 @@ PELIN TOIMINNOT:
 
     TUTKINNAN TILANNE
     - Näet, kuinka monta vihjettä, esinettä, huonetta ja epäiltyä olet tutkinut.
-    - Näet myös nykyisen sijaintisi ja PIN-koodin tilanteen.
+    - Näet myös nykyisen sijaintisi ja oletko ratkaissut PIN-koodin.
 
     RATKAISE PIN-KOODI
     - Albertin tietokone on lukittu kuusinumeroisella PIN-koodilla.
     - Sen voi ratkaista kartanosta löytyvien vihjeiden avulla.
 
     RATKAISE MURHAAJA
-    - Kun olet ratkaissut PIN-koodin, voit yrittää ratkaista murhaajan.
+    - Kun olet ratkaissut PIN-koodin, voit yrittää ratkaista murhaajaa.
     - Tutki kaikki vihjeet huolellisesti ennen lopullista arvausta.
 
     VAROITUS
     - Peli alkaa alusta, jos annat väärän PIN-koodin tai syytät väärää henkilöä.
 
     OHJEET
-    - Voit avata nämä peliohjeet uudelleen päävalikosta.
+    - Voit avata tarinan ja ohjeet uudelleen päävalikosta.
 
     TALLENTAMINEN
     - Voit tallentaa pelin päävalikon kautta, ja jatkaa myöhemmin.

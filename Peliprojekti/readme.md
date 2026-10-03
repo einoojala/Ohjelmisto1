@@ -5,7 +5,7 @@ Tekijä: Eino Ojala
 # **Pelin idea**
 
 Murha kartanossa on tekstipohjainen murhamysteeripeli, 
-jossa pelaaja toimii tutkijana ja yrittää selvittää 
+jossa pelaaja toimii tutkijana, joka yrittää selvittää 
 Kiven kartanossa tapahtuneen murhan. 
 Kartanossa on useita huoneita, epäiltyjä, esineitä 
 ja vihjeitä, joiden avulla pelaaja voi selvittää 
@@ -25,8 +25,8 @@ salainen viesti, joka auttaa murhaajan tunnistamisessa.
 Tämän jälkeen pelaaja voi tehdä lopullisen arvauksen
 murhaajasta.
 
-Jos pelaaja syöttää väärän PIN-koodin tai syyttää väärää 
-henkilöä, peli alkaa uudelleen.
+Peli alkaa uudelleen, jos pelaaja syöttää väärän PIN-koodin 
+tai syyttää väärää henkilöä.
 
 # **Toiminnallisuudet**
 
@@ -53,16 +53,16 @@ vihjeistä.
 
 Pelissä on useita erilaisia tapoja löytää vihjeitä. 
 Pelaaja voi päättää itse, missä järjestyksessä hän 
-tutkii huoneita, esineitä ja epäiltyjä. Vihjeitä voi 
+tutkii huoneita, esineitä ja epäiltyjä. Vihjeet voivat 
 siis löytyä eri järjestyksessä, mutta kaikkien etenemistapojen 
-lopussa pelaajan täytyy ratkaista tietokoneen PIN-koodi.
-PIN-koodin ratkaisemisen jälkeen pelaaja saa salaisen viestin 
-ja voi tehdä lopullisen arvauksen murhaajasta
+lopussa pelaajan täytyy ratkaista PIN-koodi. Oikean PIN-koodin 
+jälkeen pelaaja saa salaisen viestin ja voi tehdä 
+lopullisen arvauksen murhaajasta.
 
 Pelissä on myös tallennus- ja lataustoiminto. 
 Pelaajan nimi, ikä, sijainti, inventaario, löydetyt vihjeet, 
 tutkitut huoneet, tutkitut epäillyt sekä PIN-koodin ratkaisemisen tila 
-tallennetaan erilliseen tekstitiedostoon. Näin peliä voi jatkaa myöhemmin.
+tallennetaan erilliseen JSON-tiedostoon. Näin peliä voi jatkaa myöhemmin.
 
 Peli on jaettu useisiin Python-tiedostoihin ja moduuleihin. Pelaajaa, 
 huoneita, esineitä ja epäiltyjä käsitellään omissa luokissaan.
@@ -73,16 +73,17 @@ main.py-tiedostosta.
 # **Kestävän kehityksen näkökulma**
 
 Pelissä on mukana YK:n kestävän kehityksen tavoite 7, 
-Edullista ja puhdasta energiaa. Teema liittyy suoraan 
-pelin juoneen, koska murhan uhri Albert Kivi työskenteli 
+edullista ja puhdasta energiaa. Teema liittyy suoraan 
+pelin tarinaan, koska murhan uhri Albert Kivi työskenteli 
 uusiutuvan energian ja aurinkopaneelien parissa.
 
-Pelin vihjeissä käsitellään esimerkiksi aurinkopaneelien tehoa
-ja niiden tehokkuuden paranemista. Pelaaja joutuu käyttämään 
-näitä energiaan liittyviä tietoja PIN-koodin ratkaisemisessa. 
-Näin kestävän kehityksen teema ei ole vain erillinen osa pelissä,
-vaan se on osa pelin tarinaa, vihjeitä ja mysteerin ratkaisemista.
+Pelin vihjeissä käsitellään esimerkiksi aurinkopaneelien 
+tehoa ja sitä, miten niiden tehokkuutta voidaan parantaa. 
+Pelaajan pitää hyödyntää näitä tietoja PIN-koodin ratkaisemisessa. 
+Näin kestävä kehitys ei ole pelissä vain erillinen teema, 
+vaan se näkyy myös pelin tarinassa, vihjeissä ja mysteerin 
+ratkaisemisessa.
 
-Pelin avulla pelaaja tutustuu uusiutuvaan energiaan ja siihen, 
-miten esimerkiksi aurinkoenergian talteenottoa pyritään kehittämään 
-entistä tehokkaammaksi.
+Pelin kautta pelaaja oppii uusiutuvasta energiasta ja siitä, 
+miten esimerkiksi aurinkoenergian talteenottoa voidaan 
+kehittää entistä tehokkaammaksi.
