@@ -22,7 +22,7 @@ tutkimuspaperi = Esine("Tutkimuspaperi",
 """Paperissa on aurinkopaneeliin liittyviä laskelmia.
 Muistiinpanoissa pohditaan, miten aurinkoenergia voisi vähentää riippuvuutta fossiilisista polttoaineista.
 Paperin alareunassa lukee: "400 W / paneeli - 25 paneelia.""",
-"Laske teho. Kaksi ensimmäistä ratkaisevat.")
+"Laske teho. Kaksi ensimmäistä numeroa ratkaisevat.")
 
 avainkortti = Esine("Yrityksen avainkortti",
 """Kortti kuuluu yrityksen henkilökunnalle.
@@ -45,9 +45,10 @@ eikä vedenkeittimessä ole merkkejä siitä, että sitä olisi käytetty.""",
 paivakirja = Esine("Päiväkirja",
 """Vanha päiväkirja löytyy kirjahyllyn välistä. Useat sivut ovat täynnä 
 aurinkoenergiaan liittyviä muistiinpanoja. Yksi sivu on revitty irti.""",
-"Päiväkirjan merkinnän mukaan ensimmäinen toimiva prototyyppi valmistui tammikuussa vuonna 2026.")
+"Päiväkirjan merkinnän mukaan ensimmäinen toimiva prototyyppi valmistui vuonna 2025.")
 
-muistilappu = Esine("Muistilappu", "Muistilapussa on mysteeri", "= O(1N) - R(1N) - T(2N) - P(2N)")
+muistilappu = Esine("Muistilappu", "Muistilapussa on mysteeri",
+"koodi = Olo.(1Num) - Ruok.(1 Num) - Tutk.(2 Num) - Päiv.(2 Num)")
 
 # Lista kaikista pelin kerättävistä esineistä, jota käytetään esimerkiksi tallennuksessa.
 esineet = [tutkimuspaperi, avainkortti, usb_kotelo, kuppi, paivakirja, muistilappu]
@@ -59,4 +60,4 @@ tietokone = LukittuEsine("Albertin tietokone",
 """Tietokone on päällä, mutta näyttö on lukittu.
 Näytöllä näkyy vain PIN-koodin syöttökenttä.""",
 "Tietokoneessa saattaa olla jotain salaista",
-"681026")
+"681025")

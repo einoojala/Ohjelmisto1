@@ -89,6 +89,7 @@ PELIN TOIMINNOT:
     RATKAISE PIN-KOODI
     - Albertin tietokone on lukittu kuusinumeroisella PIN-koodilla.
     - Sen voi ratkaista kartanosta löytyvien vihjeiden avulla.
+    - Sinulla on kaksi yritystä.
 
     RATKAISE MURHAAJA
     - Kun olet ratkaissut PIN-koodin, voit yrittää ratkaista murhaajaa.

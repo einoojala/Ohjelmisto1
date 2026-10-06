@@ -25,8 +25,8 @@ salainen viesti, joka auttaa murhaajan tunnistamisessa.
 Tämän jälkeen pelaaja voi tehdä lopullisen arvauksen
 murhaajasta.
 
-Peli alkaa uudelleen, jos pelaaja syöttää väärän PIN-koodin 
-tai syyttää väärää henkilöä.
+Jos pelaaja syöttää väärän PIN-koodin tai syyttää väärää henkilöä, 
+peli epäonnistuu ja pelaaja voi aloittaa uuden pelin tai lopettaa pelin.
 
 # **Toiminnallisuudet**
 

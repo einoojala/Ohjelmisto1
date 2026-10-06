@@ -42,12 +42,8 @@ class Pelaaja:
             if 1 <= numero <= len(self.inventaario):
                 # Listan indeksit alkavat nollasta, joten käyttäjän numerosta vähennetään yksi.
                 esine = self.inventaario[numero - 1]
-
-                # Tutkitaan valittu esine.
                 esine.tutki()
-                # Jos esineessä on vihje, lisätään se pelaajan vihjelistaan.
-                if esine.vihje:
-                    self.lisaa_vihje(esine.vihje)
+                self.lisaa_vihje(esine.vihje)
             else:
                 print("Tuntematon valinta.")
 
@@ -72,13 +68,13 @@ class Pelaaja:
         print("\n--- TUTKINNAN TILANNE ---")
         print(f"Vihjeet: {len(self.vihjeet)} / 12")
         print(f"Esineet: {len(self.inventaario)} / 6")
-        print(f"Tutkitut huoneet: {len(self.tutkitut_huoneet)} / 5")
+        print(f"Tarkemmin tutkitut huoneet: {len(self.tutkitut_huoneet)} / 5")
         print(f"Tutkitut epäillyt: {len(self.tutkitut_epaillyt)} / 4")
 
         if self.sijainti is not None:
             print(f"Sijainti: {self.sijainti.nimi}")
         else:
-            print("Sijainti: Et ole vielä tutkinut huonetta.")
+            print("Sijainti: Et ole vielä missään huoneessa.")
             
         if self.pin_ratkaistu:
             print("PIN-koodi: Ratkaistu")

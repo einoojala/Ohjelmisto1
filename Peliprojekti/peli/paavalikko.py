@@ -11,7 +11,7 @@ from peli.mysteerit import ratkaise_murhaaja, ratkaise_pin_koodi
 def tutki_huonetta(pelaaja, otsikko="TUTKI HUONEITA"):
     while True:
         print(f"\n--- {otsikko} ---")
-        # enumerate antaa jokaiselle huoneelle numeron, jotta pelaaja voi valita huoneen numerolla.
+        # enumerate antaa huoneille numerot 1 alkaen.
         for numero, huone in enumerate(huoneet, 1):
             print(f"{numero}. {huone.nimi}")
         print("x. Takaisin")
@@ -60,7 +60,7 @@ def lisaa_esine(pelaaja):
             print("\nTässä huoneessa ei ole kerättäviä esineitä.")
 
         else:
-            # enumerate antaa jokaiselle esineelle numeron, jotta pelaaja voi valita esineen numerolla.
+            # enumerate antaa esineille numerot 1 alkaen.
             for numero, esine in enumerate(esineet, 1):
                 print(f"{numero}. {esine.nimi}")
 
@@ -108,7 +108,7 @@ def lisaa_esine(pelaaja):
 def nayta_epaillyt(pelaaja):
     while True:
         print("\n--- EPÄILLYT ---")
-        # enumerate antaa jokaiselle epäillylle numeron, jotta pelaaja voi valita epäillyn numerolla.
+        # enumerate antaa epäillyille numerot 1 alkaen.
         for numero, epailty in enumerate(epaillyt, 1):
             print(f"{numero}. {epailty.nimi}")
         print("x. Takaisin")
@@ -209,7 +209,6 @@ def paavalikko(pelaaja):
             pelaaja.nayta_vihjeet()
         elif komento == "6":
             nayta_tapahtumat()
-
         elif komento == "7":
             # Jos PIN-koodin ratkaisu epäonnistuu, aloitetaan peli alusta.
             tulos = ratkaise_pin_koodi(pelaaja)
@@ -239,7 +238,7 @@ def paavalikko(pelaaja):
             nayta_ohjeet()
         elif komento == "11":
             tallenna_peli(pelaaja)
-        elif komento == "12" or komento.lower() == "lopeta":
+        elif komento == "12":
             print("\nPeli lopetetaan.")
             print(f"Kiitos pelaamisesta, {pelaaja.nimi}!")
             break
