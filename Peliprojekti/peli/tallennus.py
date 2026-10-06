@@ -25,7 +25,6 @@ def tallenna_peli(pelaaja):
     # indent=4 sisentää JSON-tiedoston rakenteen neljällä välilyönnillä, jotta se on helpompi lukea.
     with open("data/save.json", "w", encoding="utf-8") as tiedosto:
         json.dump(tiedot, tiedosto, ensure_ascii=False, indent=4)
-
     print("\nPeli tallennettu!")
 
 # =================================================
@@ -37,13 +36,12 @@ def lataa_peli():
 
     pelaaja = Pelaaja(tiedot["nimi"], tiedot["ika"])
 
-    # Luodaan huoneiden listasta sanakirja.
+    # Käytetään sanakirjakoostetta.
+    # Tehdään huoneista sanakirja, jotta tallennuksessa oleva huoneen nimi voidaan yhdistää oikeaan huoneolioon.
     kaikki_huoneet = {huone.nimi: huone for huone in huoneet}
-
-    # Luodaan esineiden listasta sanakirja.
+    # Tehdään esineistä sanakirja, jotta tallennuksessa oleva esineen nimi voidaan yhdistää oikeaan esineolioon.
     kaikki_esineet = {esine.nimi: esine for esine in esineet}
-
-    # Luodaan epäiltyjen listasta sanakirja.
+    # Tehdään epäillyistä sanakirja, jotta tallennuksessa oleva epäillyn nimi voidaan yhdistää oikeaan epäiltyolioon.
     kaikki_epaillyt = {epailty.nimi: epailty for epailty in epaillyt}
 
     # Palautetaan pelaajan sijainti tallennuksen perusteella.

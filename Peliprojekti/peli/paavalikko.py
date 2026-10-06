@@ -30,10 +30,10 @@ def tutki_huonetta(pelaaja, otsikko="TUTKI HUONEITA"):
         if 1 <= numero <= len(huoneet):
             # Listan indeksit alkavat nollasta, joten käyttäjän numerosta vähennetään yksi.
             huone = huoneet[numero - 1]
-            # Tallennetaan pelaajan nykyiseksi sijainniksi valittu huone.
+            
             pelaaja.sijainti = huone
             print(huone)
-            huone.tutki_tarkemmin(pelaaja)
+            huone.tutki_tarkemmin_huone(pelaaja)
 
         else:
             print("Anna luku väliltä 1-5.")
@@ -58,13 +58,11 @@ def lisaa_esine(pelaaja):
 
         if not esineet:
             print("\nTässä huoneessa ei ole kerättäviä esineitä.")
-
         else:
             # enumerate antaa esineille numerot 1 alkaen.
             for numero, esine in enumerate(esineet, 1):
                 print(f"{numero}. {esine.nimi}")
 
-        # Huoneen voi vaihtaa aina, vaikka siellä ei olisi enää esineitä.
         print("v. Vaihda huonetta")
         print("x. Takaisin")
 
@@ -97,7 +95,6 @@ def lisaa_esine(pelaaja):
             pelaaja.lisaa_esine(esine)
             # Poistetaan esine huoneesta, koska pelaaja otti sen mukaan.
             esineet.remove(esine)
-
         else:
             print("Tuntematon valinta.")
 
@@ -166,11 +163,10 @@ def nayta_tapahtumat():
     print("21:55 - Viktor ja Albert keskustelivat kiivaasti työhuoneessa.")
     print("22:10 - James nähtiin kirjastossa.")
     print("22:18 - Sofia nähtiin keittiössä.")
-    print("22:19 - James palasi ruokasaliin.")
-    print("22:19 - Elisa palasi ruokasaliin.")
+    print("22:19 - James ja Elisa palasivat ruokasaliin.")
     print("22:20 - Viktor poistui työhuoneesta.")
     print("22:21-22:25 - Kartanossa oli täysin pimeää.")
-    print("22:25 - Albert löydettiin kuolleena.")   
+    print("22:25 - Albert löydettiin kuolleena.")
 
 # ==================================================
 # PÄÄVALIKKO
@@ -210,10 +206,10 @@ def paavalikko(pelaaja):
         elif komento == "6":
             nayta_tapahtumat()
         elif komento == "7":
-            # Jos PIN-koodin ratkaisu epäonnistuu, aloitetaan peli alusta.
             tulos = ratkaise_pin_koodi(pelaaja)
 
             if tulos is False:
+                # False palautetaan main.py:lle, jolloin tutkinta epäonnistuu.
                 return False
             
         elif komento == "8":
@@ -222,7 +218,7 @@ def paavalikko(pelaaja):
                 tulos = ratkaise_murhaaja(pelaaja)
 
                 if tulos is False:
-                    # False palautetaan main.py:lle, jolloin peli aloitetaan alusta.
+                    # False palautetaan main.py:lle, jolloin tutkinta epäonnistuu.
                     return False
                 
                 elif tulos is True:

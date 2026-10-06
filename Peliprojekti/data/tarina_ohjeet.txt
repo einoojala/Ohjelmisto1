@@ -29,7 +29,7 @@ uutisesta yhtä tyytyväisiä.
 Elisa ja Albert ovat riidelleet viime aikoina 
 useammin kuin tavallisesti. James on ollut kiinnostunut 
 siitä, kuinka paljon uudella teknologialla voisi
-tienata. Viktor puolestaan on vaatinut suurempaa
+tienata. Viktor on puolestaan vaatinut suurempaa
 osuutta yrityksen tulevista voitoista. 
 Sofia on ollut viime aikoina eri mieltä Albertin
 kanssa siitä, miten uuden teknologian tutkimusta
@@ -50,7 +50,7 @@ Onnea tehtävään!
                                 OHJEET
 ==========================================================================
 PELINOHJEET
-- Albert Kivi on löydetty kuolleena työhuoneesta
+- Albert Kivi on löydetty kuolleena työhuoneestaan
   ja tehtäväsi on selvittää, kuka hänet murhasi.
 
 PELIN TOIMINNOT:
@@ -73,7 +73,7 @@ PELIN TOIMINNOT:
         - James Kivi
         - Viktor Salonen
         - Sofia Niemi
-    - Mieti kenellä voisi olla motiivi ja mahdollisuus syyllistyä murhaan.
+    - Selvitä, kuka näistä on syyllistynyt murhaan.
 
     TUTKI VIHJEITÄ
     - Voit tarkastella vihjeitä uudelleen.
@@ -88,15 +88,15 @@ PELIN TOIMINNOT:
 
     RATKAISE PIN-KOODI
     - Albertin tietokone on lukittu kuusinumeroisella PIN-koodilla.
-    - Sen voi ratkaista kartanosta löytyvien vihjeiden avulla.
-    - Sinulla on kaksi yritystä.
+    - Koodin saa selville kartanosta löytyvien vihjeiden avulla.
+    - Sinulla on kaksi yritystä syöttää oikea PIN-koodi.
 
     RATKAISE MURHAAJA
-    - Kun olet ratkaissut PIN-koodin, voit yrittää ratkaista murhaajaa.
+    - Kun olet ratkaissut PIN-koodin, voit yrittää ratkaista murhaajan.
     - Tutki kaikki vihjeet huolellisesti ennen lopullista arvausta.
 
     VAROITUS
-    - Peli alkaa alusta, jos annat väärän PIN-koodin tai syytät väärää henkilöä.
+    - Tutkinta epäonnistuu, jos annat väärän PIN-koodin tai syytät väärää henkilöä.
 
     OHJEET
     - Voit avata tarinan ja ohjeet uudelleen päävalikosta.

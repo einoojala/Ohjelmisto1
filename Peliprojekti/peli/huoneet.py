@@ -12,7 +12,7 @@ class Huone:
         return f"\n---- {self.nimi.upper()} ----\n{self.kuvaus}"
 
     # Antaa pelaajalle mahdollisuuden tutkia huonetta tarkemmin tutki_huonetta funktion yhteydessä.
-    def tutki_tarkemmin(self, pelaaja):
+    def tutki_tarkemmin_huone(self, pelaaja):
         # Saman huoneen tarkempi vihje voidaan tutkia vain kerran.
         if self in pelaaja.tutkitut_huoneet:
             print("\nOlet jo tutkinut tämän huoneen tarkemmin.")
@@ -60,14 +60,14 @@ Huoneessa on hieman outo tunnelma.""",
 
 olohuone = Huone("Olohuone",
 """Olohuoneessa on suuri sohva, takka ja vanha taulu.
-Kaikki näyttää ensisilmäyksellä normaalilta.""",
+Kaikki näyttää ensisilmäykseltä normaalilta.""",
 """Elisan huivi löytyy sohvan vierestä. Huivin reunassa on tumma tahra. Taulussa on merkintä: kuusi vuotta sitten kaikki muuttui.""", 
 [muistilappu])
 
 ruokasali = Huone("Ruokasali",
 """Ruokasalissa on pitkä pöytä, jonka ympärillä on viisi tuolia.
-Illallisen jäljet ovat edelleen näkyvissä.""",
-"""Illallisen jälkeen Albertin paikalla on lappu: Uusi paneeli 28 %, vanha paneeli 20 %. Tehokkuusero kertoo numeron.""",
+Pöydällä on edleleen illallisen jälkiä.""",
+"""Illallisen jälkeen Albertin paikalla on lappu: Uusi paneeli 28 %, vanha paneeli 20 %. Laske prosenttien erotus.""",
 [])
 
 # Lista kaikista pelin huoneista, jota käytetään päävalikossa huoneen valitsemiseen.

@@ -129,7 +129,6 @@ def main():
         else:
             # Jos tallennustiedostoa ei ole, luodaan uusi peli.
             pelaaja = uusi_pelaaja()
-
         print(f"\nTervetuloa, {pelaaja.nimi}!")
         nayta_ohjeet()
 
@@ -141,7 +140,6 @@ def main():
         # Tämä tapahtuu esimerkiksi väärän PIN-koodin tai syytöksen jälkeen.
         if tulos is False:
             pelaaja = tutkinta_epaonnistui()
-
             # Jos pelaaja haluaa lopettaa pelin, lopetetaan main()-funktio.
             if pelaaja is None:
                 return

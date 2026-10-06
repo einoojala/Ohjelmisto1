@@ -48,7 +48,7 @@ aurinkoenergiaan liittyviä muistiinpanoja. Yksi sivu on revitty irti.""",
 "Päiväkirjan merkinnän mukaan ensimmäinen toimiva prototyyppi valmistui vuonna 2025.")
 
 muistilappu = Esine("Muistilappu", "Muistilapussa on mysteeri",
-"koodi = Olo.(1Num) - Ruok.(1 Num) - Tutk.(2 Num) - Päiv.(2 Num)")
+"koodi = Olo.(1 Num) - Ruok.(1 Num) - Tutk.(2 Num) - Päiv.(2 Num)")
 
 # Lista kaikista pelin kerättävistä esineistä, jota käytetään esimerkiksi tallennuksessa.
 esineet = [tutkimuspaperi, avainkortti, usb_kotelo, kuppi, paivakirja, muistilappu]
