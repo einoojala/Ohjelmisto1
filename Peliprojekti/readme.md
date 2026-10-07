@@ -155,4 +155,4 @@ Päävalikon toiminnot:
 
 ## **Pelin käynnistäminen**
 
-- **Peli käynnistetään **peliprojekti-kansion main.py tiedostosta**.
+- **Peli käynnistetään peliprojekti-kansion main.py tiedostosta**.
