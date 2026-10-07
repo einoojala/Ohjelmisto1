@@ -152,3 +152,7 @@ Päävalikon toiminnot:
 - Tarina_ohjeet.txt sisältää pelin tarinan ja ohjeet.
 
 - Tallennuksessa luotu save.json sisältää tallennetun pelin tiedot.
+
+## **Pelin käynnistäminen**
+
+- **Peli käynnistetään **peliprojekti-kansion main.py tiedostosta**.
