@@ -24,7 +24,6 @@ class Huone:
             if vastaus == "k":
                 print("\n---- TARKEMPI TUTKIMUS ----")
                 print(self.vihje)
-
                 pelaaja.lisaa_vihje(self.vihje)
                 pelaaja.tutkitut_huoneet.append(self)
 
@@ -43,7 +42,7 @@ tyohuone = Huone("Työhuone",
 Pöydällä on tietokone ja useita papereita.
 Seinällä oleva kello on pysähtynyt aikaan 22:21.""",
 """Albertin pöydällä on Viktorilta viesti: Jos et anna minulle osuuttani, kerron kaikille tutkimuksestasi.""",
- [tutkimuspaperi, usb_kotelo])
+[tutkimuspaperi, usb_kotelo])
 
 kirjasto = Huone("Kirjasto",
 """Kirjastossa on korkeat kirjahyllyt ja vanha kirjoituspöytä.
@@ -55,18 +54,18 @@ keittio = Huone("Keittiö",
 """Keittiössä on vielä illallisen jälkiä.
 Pöydällä on astioita ja vedenkeitin.
 Huoneessa on hieman outo tunnelma.""",
-"""Sofia kertoi valmistaneensa teetä ennen sähkökatkoa, mutta vedenkeitin on kylmä ja kuppi kuiva.""", 
+"""Sofia kertoi valmistaneensa teetä ennen sähkökatkoa, mutta vedenkeitin on kylmä ja kuppi kuiva.""",
 [avainkortti, kuppi])
 
 olohuone = Huone("Olohuone",
 """Olohuoneessa on suuri sohva, takka ja vanha taulu.
 Kaikki näyttää ensisilmäykseltä normaalilta.""",
-"""Elisan huivi löytyy sohvan vierestä. Huivin reunassa on tumma tahra. Taulussa on merkintä: kuusi vuotta sitten kaikki muuttui.""", 
+"""Elisan huivi löytyy sohvan vierestä. Huivin reunassa on tumma tahra. Taulussa on merkintä: kuusi vuotta sitten kaikki muuttui.""",
 [muistilappu])
 
 ruokasali = Huone("Ruokasali",
 """Ruokasalissa on pitkä pöytä, jonka ympärillä on viisi tuolia.
-Pöydällä on edleleen illallisen jälkiä.""",
+Pöydällä on edelleen illallisen jälkiä.""",
 """Illallisen jälkeen Albertin paikalla on lappu: Uusi paneeli 28 %, vanha paneeli 20 %. Laske prosenttien erotus.""",
 [])
 

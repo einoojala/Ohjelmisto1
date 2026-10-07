@@ -10,6 +10,7 @@ class Pelaaja:
         self.pin_ratkaistu = False
 
     # Lisää esineen pelaajan inventaarioon, jos sitä ei siellä vielä ole.
+    # Käytetään keraa_esineita()-funktiossa, kun pelaaja kerää esineen.
     def lisaa_esine(self, esine):
         if esine not in self.inventaario:
             self.inventaario.append(esine)
@@ -31,7 +32,6 @@ class Pelaaja:
 
             if valinta.lower() == "x":
                 return
-            
             if not valinta.isdigit():
                 print("Anna numero.")
                 continue
@@ -48,6 +48,7 @@ class Pelaaja:
                 print("Tuntematon valinta.")
 
     # Lisää uuden vihjeen pelaajan vihjelistaan, jos sitä ei ole vielä löydetty.
+    # Käytetään, kun pelaaja löytää vihjeen esineestä tai tutkii huonetta tarkemmin.
     def lisaa_vihje(self, vihje):
         if vihje not in self.vihjeet:
             self.vihjeet.append(vihje)
@@ -65,18 +66,27 @@ class Pelaaja:
 
     # Näyttää tutkinnan tämänhetkisen tilanteen.
     def nayta_tutkinnan_tilanne(self):
-        print("\n--- TUTKINNAN TILANNE ---")
-        print(f"Vihjeet: {len(self.vihjeet)} / 12")
-        print(f"Esineet: {len(self.inventaario)} / 6")
-        print(f"Tarkemmin tutkitut huoneet: {len(self.tutkitut_huoneet)} / 5")
-        print(f"Tutkitut epäillyt: {len(self.tutkitut_epaillyt)} / 4")
+        while True:
+            print("\n--- TUTKINNAN TILANNE ---")
+            print(f"Vihjeet: {len(self.vihjeet)} / 12")
+            print(f"Esineet: {len(self.inventaario)} / 6")
+            print(f"Tarkemmin tutkitut huoneet: {len(self.tutkitut_huoneet)} / 5")
+            print(f"Tutkitut epäillyt: {len(self.tutkitut_epaillyt)} / 4")
 
-        if self.sijainti is not None:
-            print(f"Sijainti: {self.sijainti.nimi}")
-        else:
-            print("Sijainti: Et ole vielä missään huoneessa.")
-            
-        if self.pin_ratkaistu:
-            print("PIN-koodi: Ratkaistu")
-        else:
-            print("PIN-koodi: Ratkaisematta")
+            if self.sijainti is not None:
+                print(f"Sijainti: {self.sijainti.nimi}")
+            else:
+                print("Sijainti: Et ole vielä missään huoneessa.")
+
+            if self.pin_ratkaistu:
+                print("PIN-koodi: Ratkaistu")
+            else:
+                print("PIN-koodi: Ratkaisematta")
+
+            print("\nx. Takaisin")
+            valinta = input("Valitse: ").lower()
+
+            if valinta == "x":
+                return
+            else:
+                print("Paina x palataksesi.")

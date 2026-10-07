@@ -1,4 +1,5 @@
 import os
+import sys
 from peli import Pelaaja
 from peli.paavalikko import paavalikko, nayta_ohjeet
 from peli.tallennus import lataa_peli
@@ -7,7 +8,7 @@ from peli.huoneet import nollaa_huoneet
 # ==================================================
 # UUSI PELAAJA
 # ==================================================
-# Luo ja palauttaa uuden pelaajan
+# Luo ja palauttaa uuden pelaajan.
 def uusi_pelaaja():
     while True:
         nimi = input("Mikä sinun nimesi on? ")
@@ -19,19 +20,18 @@ def uusi_pelaaja():
         if nimi.isdigit():
             print("Nimi ei voi olla pelkkää numeroa.")
             continue
-
+        
         break
 
     while True:
         try:
             ika = int(input("Kuinka vanha olet? "))
-
             if ika >= 100:
                 print("\nLuulen, että annoit väärän iän.")
                 continue
             if ika < 12:
                 print("\nOlet liian nuori pelaamaan tätä peliä.")
-                exit()
+                sys.exit()
 
             break
 
@@ -72,15 +72,12 @@ def pelin_valinta():
 
         elif valinta == "2":
             # Varmistetaan, että pelaaja haluaa aloittaa uuden pelin.
-            varmistus = input(
-                "\nHaluatko varmasti aloittaa uuden pelin? "
-                "Nykyinen tallennus poistetaan. (k/e): ").lower()
+            varmistus = input("\nHaluatko varmasti aloittaa uuden pelin? Nykyinen tallennus poistetaan. (k/e): ").lower()
 
             if varmistus == "k":
                 # Poistetaan vanha tallennus ennen uuden pelin aloittamista.
                 os.remove("data/save.json")
                 return uusi_pelaaja()
-
             elif varmistus == "e":
                 # Palataan takaisin tallennetun pelin valintaan.
                 continue
@@ -105,14 +102,12 @@ def tutkinta_epaonnistui():
             # Vanha tallennus poistetaan ennen uuden pelin aloittamista.
             if os.path.exists("data/save.json"):
                 os.remove("data/save.json")
-
-            return uusi_pelaaja()
+            return "uusi"
 
         elif valinta == "2":
             print("\nPeli lopetetaan.")
             # Lopetetaan main()-funktio ja samalla koko peli.
             return None
-
         else:
             print("Tuntematon valinta. Valitse 1 tai 2.")
 
@@ -127,7 +122,7 @@ def main():
         if os.path.exists("data/save.json"):
             pelaaja = pelin_valinta()
         else:
-            # Jos tallennustiedostoa ei ole, luodaan uusi peli.
+            # Luodaan uusi peli, jos tallennustiedostoa ei ole.
             pelaaja = uusi_pelaaja()
         print(f"\nTervetuloa, {pelaaja.nimi}!")
         nayta_ohjeet()
@@ -139,12 +134,26 @@ def main():
         # Jos päävalikko palauttaa False-arvon, peli epäonnistui.
         # Tämä tapahtuu esimerkiksi väärän PIN-koodin tai syytöksen jälkeen.
         if tulos is False:
-            pelaaja = tutkinta_epaonnistui()
-            # Jos pelaaja haluaa lopettaa pelin, lopetetaan main()-funktio.
-            if pelaaja is None:
+            tulos = tutkinta_epaonnistui()
+            # Jos tutkinta_epaonnistui() palauttaa None, pelaaja halusi lopettaa pelin.
+            # return lopettaa main()-funktion ja samalla koko pelin.
+            if tulos is None:
                 return
+            # Jos pelaaja haluaa aloittaa uuden pelin, palataan main()-silmukan alkuun.
+            elif tulos == "uusi":
+                continue
+
+        # Jos oikea murhaaja ratkaistiin ja pelaaja haluaa aloittaa uuden pelin,
+        # vanha tallennus poistetaan ennen uuden pelin aloittamista.
+        elif tulos == "uusi":
+            if os.path.exists("data/save.json"):
+                os.remove("data/save.json")
+
+            continue
         else:
-            # Jos paavalikko ei palauttanut False-arvoa, peli päättyy.
+            # True tarkoittaa, että peli päättyi onnistuneeseen murhaajan ratkaisuun.
+            # None tarkoittaa, että pelaaja lopetti pelin päävalikon kautta.
+            # break lopettaa while True -silmukan, ja koska sen jälkeen ei ole enää koodia, main() funktio päättyy.    
             break
 
 # Käynnistetään peli vain, kun main.py suoritetaan suoraan.

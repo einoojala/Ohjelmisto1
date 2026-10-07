@@ -10,7 +10,7 @@ class Epailty:
         return f"Nimi: {self.nimi}\nIkä: {self.ika} vuotta\nRooli: {self.rooli}\nMotiivi: \n{self.motiivi}"
 
 elisa = Epailty("Elisa Kivi", 48, "Albertin vaimo",
-"""Elisa ja Albert olivat riidelleet viime aikoina usein.
+"""Elisa ja Albert olivat riidelleet usein viime aikoina.
 He olivat eri mieltä Albertin työstä ja siitä,
 kuinka paljon aikaa hän käytti tutkimukseensa.""")
 

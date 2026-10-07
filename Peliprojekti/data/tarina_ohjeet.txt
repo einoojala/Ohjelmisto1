@@ -35,10 +35,10 @@ Sofia on ollut viime aikoina eri mieltä Albertin
 kanssa siitä, miten uuden teknologian tutkimusta
 pitäisi jatkossa käyttää.
 
-Illallisen jälkeen Albert menee työhuoneeseensa
+Illallisen jälkeen Albert menee työhuoneeseen
 ja hetkeä myöhemmin koko kartano pimenee. Sähköt 
 ovat poissa vain muutaman minuutin. Kun valot palaavat, 
-Albert löytyy työhuoneestaan kuolleena. Hänen työpöydällään 
+Albert löytyy kuolleena työhuoneesta. Hänen työpöydällään 
 ollut USB-muistitikku on kadonnut. Tikulle oli tallennettu uuden
 aurinkopaneelin tärkeät tutkimustiedot.
 
@@ -87,7 +87,7 @@ PELIN TOIMINNOT:
     - Näet myös nykyisen sijaintisi ja oletko ratkaissut PIN-koodin.
 
     RATKAISE PIN-KOODI
-    - Albertin tietokone on lukittu kuusinumeroisella PIN-koodilla.
+    - Albertin tietokone on lukittu kuusinumeroisella koodilla.
     - Koodin saa selville kartanosta löytyvien vihjeiden avulla.
     - Sinulla on kaksi yritystä syöttää oikea PIN-koodi.
 
@@ -96,13 +96,14 @@ PELIN TOIMINNOT:
     - Tutki kaikki vihjeet huolellisesti ennen lopullista arvausta.
 
     VAROITUS
-    - Tutkinta epäonnistuu, jos annat väärän PIN-koodin tai syytät väärää henkilöä.
+    - Tutkinta epäonnistuu, jos annat väärän PIN-koodin kaksi kertaa 
+      tai syytät väärää henkilöä.
 
     OHJEET
     - Voit avata tarinan ja ohjeet uudelleen päävalikosta.
 
     TALLENTAMINEN
-    - Voit tallentaa pelin päävalikon kautta, ja jatkaa myöhemmin.
+    - Voit tallentaa pelin päävalikon kautta ja jatkaa myöhemmin.
 
     ONNEA TUTKINTAAN!
     ==========================================================================

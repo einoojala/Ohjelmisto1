@@ -38,12 +38,11 @@ def tutki_huonetta(pelaaja, otsikko="TUTKI HUONEITA"):
         else:
             print("Anna luku väliltä 1-5.")
 
-
 # ==================================================
 # ESINEIDEN KERÄÄMINEN
 # ==================================================
 # Funktio antaa pelaajalle mahdollisuuden ottaa esineitä ja lisätä ne inventaarioon.
-def lisaa_esine(pelaaja):
+def keraa_esineita(pelaaja):
     # Pelaajan täytyy olla jossain huoneessa ennen kuin hän voi kerätä esineitä.
     if pelaaja.sijainti is None:
         print("\nEt ole vielä missään huoneessa.")
@@ -56,24 +55,25 @@ def lisaa_esine(pelaaja):
         # Haetaan pelaajan nykyisen huoneen esinelista.
         esineet = pelaaja.sijainti.esineet
 
-        if not esineet:
-            print("\nTässä huoneessa ei ole kerättäviä esineitä.")
-        else:
-            # enumerate antaa esineille numerot 1 alkaen.
+        if esineet:
+        # enumerate antaa esineille numerot 1 alkaen.
             for numero, esine in enumerate(esineet, 1):
                 print(f"{numero}. {esine.nimi}")
+        else:
+            print("\nTässä huoneessa ei ole kerättäviä esineitä.")
 
         print("v. Vaihda huonetta")
         print("x. Takaisin")
 
-        valinta = input("Valitse: ")
+        valinta = input("Valitse: ").lower()
 
         # x-valinnalla palataan takaisin ilman esineen ottamista.
-        if valinta.lower() == "x":
+        if valinta== "x":
             return
 
-        # v-valinnalla avataan huonevalikko.
-        if valinta.lower() == "v":
+        # v-valinnalla avataan huonevalikko. 
+        # Continue aloittaa while True silmukan uudestaan
+        if valinta== "v":
             tutki_huonetta(pelaaja, "VAIHDA HUONETTA")
             continue
 
@@ -139,10 +139,13 @@ def nayta_epaillyt(pelaaja):
 # ==================================================
 # Näyttää pelin tarinan ja ohjeet.
 def nayta_ohjeet():
-    # Avataan tiedosto lukemista varten.
-    with open("data/tarina_ohjeet.txt", "r", encoding="utf-8") as tiedosto:
-        teksti = tiedosto.read()
-
+    try:
+        with open("data/tarina_ohjeet.txt", "r", encoding="utf-8") as tiedosto:
+            teksti = tiedosto.read()
+    except FileNotFoundError:
+        print("\nOhjetiedostoa ei löytynyt.")
+        return
+    
     # Jaetaan teksti kappaleisiin tyhjien rivien (\n\n) kohdalta.
     kappaleet = teksti.split("\n\n")
 
@@ -158,15 +161,26 @@ def nayta_ohjeet():
 # TAPAHTUMA-AJAT
 # ==================================================
 def nayta_tapahtumat():
-    print("\n--- TAPAHTUMAT ---")
-    print("21:50 - Elisa ja Albert riitelivät kahdestaan.")
-    print("21:55 - Viktor ja Albert keskustelivat kiivaasti työhuoneessa.")
-    print("22:10 - James nähtiin kirjastossa.")
-    print("22:18 - Sofia nähtiin keittiössä.")
-    print("22:19 - James ja Elisa palasivat ruokasaliin.")
-    print("22:20 - Viktor poistui työhuoneesta.")
-    print("22:21-22:25 - Kartanossa oli täysin pimeää.")
-    print("22:25 - Albert löydettiin kuolleena.")
+    while True:
+        print("\n--- TAPAHTUMAT ---")
+
+        print("21:50 - Elisa ja Albert riitelivät kahdestaan.")
+        print("21:55 - Viktor ja Albert keskustelivat kiivaasti työhuoneessa.")
+        print("22:10 - James nähtiin kirjastossa.")
+        print("22:18 - Sofia nähtiin keittiössä.")
+        print("22:19 - James ja Elisa palasivat ruokasaliin.")
+        print("22:20 - Viktor poistui työhuoneesta.")
+        print("22:21-22:25 - Kartanossa oli täysin pimeää.")
+        print("22:25 - Albert löydettiin kuolleena.")
+
+        print("\nx. Takaisin")
+
+        valinta = input("Valitse: ").lower()
+
+        if valinta == "x":
+            return
+        else:
+            print("Paina x palataksesi.")
 
 # ==================================================
 # PÄÄVALIKKO
@@ -196,7 +210,7 @@ def paavalikko(pelaaja):
         if komento == "1":
             tutki_huonetta(pelaaja)
         elif komento == "2":
-            lisaa_esine(pelaaja)
+            keraa_esineita(pelaaja)
         elif komento == "3":
             pelaaja.nayta_inventaario()
         elif komento == "4":
@@ -220,7 +234,9 @@ def paavalikko(pelaaja):
                 if tulos is False:
                     # False palautetaan main.py:lle, jolloin tutkinta epäonnistuu.
                     return False
-                
+                elif tulos == "uusi":
+                    # "uusi" palautetaan main.py:lle, jolloin pelaaja haluaa aloittaa uuden pelin.
+                    return "uusi"
                 elif tulos is True:
                     # True palautetaan main.py:lle, jolloin peli voidaan lopettaa.
                     return True
@@ -237,7 +253,7 @@ def paavalikko(pelaaja):
         elif komento == "12":
             print("\nPeli lopetetaan.")
             print(f"Kiitos pelaamisesta, {pelaaja.nimi}!")
-            break
+            return None
         else:
             print("\nTuntematon komento.")
             print("Valitse jokin valikon vaihtoehdoista.")

@@ -22,7 +22,7 @@ tutkimuspaperi = Esine("Tutkimuspaperi",
 """Paperissa on aurinkopaneeliin liittyviä laskelmia.
 Muistiinpanoissa pohditaan, miten aurinkoenergia voisi vähentää riippuvuutta fossiilisista polttoaineista.
 Paperin alareunassa lukee: "400 W / paneeli - 25 paneelia.""",
-"Laske teho. Kaksi ensimmäistä numeroa ratkaisevat.")
+"Laske kokonaisteho. Kaksi ensimmäistä numeroa ratkaisevat.")
 
 avainkortti = Esine("Yrityksen avainkortti",
 """Kortti kuuluu yrityksen henkilökunnalle.

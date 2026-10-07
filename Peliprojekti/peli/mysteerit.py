@@ -4,7 +4,7 @@ from peli.epaillyt import epaillyt
 # ==================================================
 # PIN-KOODIN RATKAISEMINEN
 # ==================================================
-# Käynnistää tietokoneen PIN-koodin ratkaisemisen.
+# Käytetään paavalikko() funktiossa, kun pelaaja valitsee PIN-koodin ratkaisemisen.
 def ratkaise_pin_koodi(pelaaja):
     print("\n--- RATKAISE MYSTEERI ---")
 
@@ -18,7 +18,6 @@ def ratkaise_pin_koodi(pelaaja):
 
     # Pelaajalla on kaksi yritystä.
     yritykset = 2
-
     while yritykset > 0:
         koodi = input(f"\nSyötä 6-numeroinen PIN-koodi (yrityksiä jäljellä: {yritykset}, x = poistu): ")
 
@@ -32,7 +31,6 @@ def ratkaise_pin_koodi(pelaaja):
         if koodi == tietokone.pin:
             print("\nOikea PIN-koodi!")
             print("Tietokone avautuu.")
-
             # Merkitään pelaajan tietoihin, että PIN-koodi on ratkaistu.
             pelaaja.pin_ratkaistu = True
 
@@ -42,7 +40,6 @@ def ratkaise_pin_koodi(pelaaja):
             print("Hän on päässyt tutustumaan tutkimukseen")
             print("ja hänellä on ollut pääsy työhuoneeseeni.")
             print("Jos minulle tapahtuu jotain, näitä tietoja kannattaa tutkia tarkemmin.")
-
             pelaaja.lisaa_vihje("Epäillyllä oli tietoa tutkimuksesta ja pääsy työhuoneeseen.")
             return
 
@@ -58,21 +55,21 @@ def ratkaise_pin_koodi(pelaaja):
             print("Molemmat yritykset käytettiin.")
             print("Et onnistunut ratkaisemaan PIN-koodia.")
             print("Tutkinta epäonnistui.")
-
-            # False kertoo paavalikko.py:lle, että peli pitää aloittaa alusta.
+            # False kertoo paavalikko.py:lle, että tutkinta epäonnistui.
+            # paavalikko.py välittää tiedon main.py:lle.
             return False
 # ==================================================
 # MURHAAJAN RATKAISEMINEN
 # ==================================================
-# Käynnistää murhaajan ratkaisemisen.
+# Käytetään paavalikko() funktiossa, kun pelaaja valitsee murhaajan ratkaisemisen.
 def ratkaise_murhaaja(pelaaja):
     print("\n--- RATKAISE MURHAAJA ---")
     print("\nVAROITUS!")
     print("Valitsemalla epäillyn syytät häntä murhasta.")
     print("Jos valitset väärän henkilön, tutkinta epäonnistuu.")
-    print("Tutki siis kaikki vihjeet tarkasti ennen kuin teet päätöksen.\n")
+    print("Tutki siis kaikki vihjeet tarkasti ennen kuin teet päätöksen.")
 
-    print("Kuka murhasi Albert Kiven?")
+    print("\nKuka murhasi Albert Kiven?")
 
     # enumerate antaa epäillyille numerot 1 alkaen.
     for numero, epailty in enumerate(epaillyt, 1):
@@ -89,7 +86,8 @@ def ratkaise_murhaaja(pelaaja):
             print("Hänen huivinsa löytyi olohuoneesta.")
             print("Mikään todiste ei osoita, että Elisa olisi ollut työhuoneessa.")
             print("Tutkinta epäonnistui.")
-            # False kertoo paavalikko.py:lle, että peli pitää aloittaa alusta.
+            # False kertoo paavalikko.py:lle, että tutkinta epäonnistui.
+            # paavalikko.py välittää tiedon main.py:lle.
             return False
 
         elif valinta == "2":
@@ -108,7 +106,7 @@ def ratkaise_murhaaja(pelaaja):
             print("Hän kuitenkin poistui työhuoneesta jo kello 22.20.")
             print("Sähkökatko alkoi vasta kello 22.21.")
             print("Viktor ei siis voinut olla työhuoneessa murhan aikaan.")
-            print("Tutkinta epäonnistui")
+            print("Tutkinta epäonnistui.")
             return False
 
         elif valinta == "4":
@@ -128,9 +126,8 @@ def ratkaise_murhaaja(pelaaja):
                 valinta = input("Valitse: ")
 
                 if valinta == "1":
-                    # False kertoo paavalikko.py:lle, että peli pitää aloittaa alusta.
-                    return False
-
+                    # Ilmoittaa paavalikko.py:lle, että pelaaja haluaa aloittaa uuden pelin.
+                    return "uusi"
                 elif valinta == "2":
                     print("\nPeli lopetetaan.")
                     print(f"Kiitos pelaamisesta, {pelaaja.nimi}!")

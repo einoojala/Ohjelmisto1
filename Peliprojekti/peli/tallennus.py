@@ -7,8 +7,8 @@ from peli.esineet import esineet
 # =================================================
 # PELIN TALLENNUS
 # =================================================
+# Käytetään paavalikko() funktiossa, kun pelaaja valitsee pelin tallentamisen.
 def tallenna_peli(pelaaja):
-    # Muodostetaan sanakirja pelaajan tallennettavista tiedoista.
     tiedot = {
         "nimi": pelaaja.nimi,
         "ika": pelaaja.ika,
@@ -19,10 +19,9 @@ def tallenna_peli(pelaaja):
         "tutkitut_huoneet": [huone.nimi for huone in pelaaja.tutkitut_huoneet],
         "tutkitut_epaillyt": [epailty.nimi for epailty in pelaaja.tutkitut_epaillyt]}
 
-    # Avataan tai luodaan JSON-tiedosto kirjoittamista varten.
-    # encoding="utf-8" mahdollistaa suomalaisten merkkien, kuten ä:n ja ö:n, tallentamisen oikein.
-    # ensure_ascii=False pitää nämä merkit JSON-tiedostossa normaalisti näkyvissä.
-    # indent=4 sisentää JSON-tiedoston rakenteen neljällä välilyönnillä, jotta se on helpompi lukea.
+    # encoding="utf-8" määrittää, miten teksti tallennetaan tiedostoon ja mahdollistaa esim. ä:n ja ö:n tallentamisen oikein.
+    # ensure_ascii=False säilyttää nämä merkit JSON-tiedostossa normaalisti näkyvissä.
+    # indent=4 sisentää JSON-tiedoston rakenteen neljällä välilyönnillä, jotta sitä on helpompi lukea.
     with open("data/save.json", "w", encoding="utf-8") as tiedosto:
         json.dump(tiedot, tiedosto, ensure_ascii=False, indent=4)
     print("\nPeli tallennettu!")
@@ -30,10 +29,10 @@ def tallenna_peli(pelaaja):
 # =================================================
 # PELIN LATAAMINEN
 # =================================================
+# Käytetään main.py:ssä, kun pelaaja valitsee jatkaa tallennettua peliä.
 def lataa_peli():
     with open("data/save.json", "r", encoding="utf-8") as tiedosto:
         tiedot = json.load(tiedosto)
-
     pelaaja = Pelaaja(tiedot["nimi"], tiedot["ika"])
 
     # Käytetään sanakirjakoostetta.
@@ -55,7 +54,6 @@ def lataa_peli():
 
     # Palautetaan pelaajan löytämät vihjeet.
     pelaaja.vihjeet = tiedot["vihjeet"]
-
     # Palautetaan PIN-koodin ratkaisemisen tila.
     pelaaja.pin_ratkaistu = tiedot["pin_ratkaistu"]
 
