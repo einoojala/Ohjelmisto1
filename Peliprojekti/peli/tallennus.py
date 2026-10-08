@@ -21,7 +21,7 @@ def tallenna_peli(pelaaja):
 
     # encoding="utf-8" määrittää, miten teksti tallennetaan tiedostoon ja mahdollistaa esim. ä:n ja ö:n tallentamisen oikein.
     # ensure_ascii=False säilyttää nämä merkit JSON-tiedostossa normaalisti näkyvissä.
-    # indent=4 sisentää JSON-tiedoston rakenteen neljällä välilyönnillä, jotta sitä on helpompi lukea.
+    # indent=4 sisentää JSON-tiedoston rakenteen neljällä välilyönnillä.
     with open("data/save.json", "w", encoding="utf-8") as tiedosto:
         json.dump(tiedot, tiedosto, ensure_ascii=False, indent=4)
     print("\nPeli tallennettu!")

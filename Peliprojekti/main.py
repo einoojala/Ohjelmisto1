@@ -18,7 +18,7 @@ def uusi_pelaaja():
             print("Anna nimi.")
             continue
         if nimi.isdigit():
-            print("Nimi ei voi olla pelkkää numeroa.")
+            print("Nimi ei voi olla pelkkiä numeroita.")
             continue
         
         break
@@ -106,7 +106,7 @@ def tutkinta_epaonnistui():
 
         elif valinta == "2":
             print("\nPeli lopetetaan.")
-            # Lopetetaan main()-funktio ja samalla koko peli.
+            # Palautetaan None main()-funktiolle, jolloin peli voidaan lopettaa
             return None
         else:
             print("Tuntematon valinta. Valitse 1 tai 2.")
@@ -151,9 +151,9 @@ def main():
 
             continue
         else:
-            # True tarkoittaa, että peli päättyi onnistuneeseen murhaajan ratkaisuun.
-            # None tarkoittaa, että pelaaja lopetti pelin päävalikon kautta.
-            # break lopettaa while True -silmukan, ja koska sen jälkeen ei ole enää koodia, main() funktio päättyy.    
+            # True tarkoittaa, että pelaaja ratkaisi murhaajan oikein ja valitsi pelin lopettamisen.
+            # None tarkoittaa, että pelaaja valitsi päävalikosta "Lopeta".
+            # Kummassakin tapauksessa peli päättyy, joten while True -silmukka lopetetaan break-komennolla. 
             break
 
 # Käynnistetään peli vain, kun main.py suoritetaan suoraan.

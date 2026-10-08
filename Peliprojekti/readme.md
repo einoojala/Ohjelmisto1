@@ -79,7 +79,7 @@ Päävalikon toiminnot:
 
 - **tutkinta_epaonnistui()** käsittelee tilanteen, jossa tutkinta epäonnistuu. Pelaaja voi aloittaa uuden pelin tai lopettaa pelin.
 
-- **main()** käynnistää pelin ja hallitsee pelin pääsilmukkaa. Se käsittelee **paavalikko(pelaaja)** funktion palauttaman arvon. **False** tarkoittaa, että tutkinta epäonnistui ja pelaajalle näytetään vaihtoehto aloittaa uusi peli tai lopettaa nykyinen peli. **True** tarkoittaa, että pelaaja ratkaisi murhaajan oikein ja päätti lopettaa pelin. **None** tarkoittaa, että pelaaja lopetti pelin päävalikon kautta. **"uusi"** tarkoittaa, että pelaaja haluaa aloittaa uuden pelin. **True** ja **None** päättävät pelin normaalisti, kun taas **False** käynnistää tutkinnan epäonnistumisen käsittelyn.
+- **main()** käynnistää pelin ja hallitsee pelin pääsilmukkaa. Se käsittelee **paavalikko(pelaaja)** funktion palauttaman arvon. **False** tarkoittaa, että tutkinta epäonnistui ja pelaajalle näytetään vaihtoehto aloittaa uusi peli tai lopettaa nykyinen peli. **True** tarkoittaa, että pelaaja ratkaisi murhaajan oikein ja päätti lopettaa pelin. **None** tarkoittaa, että pelaaja lopetti pelin päävalikon kautta. **"uusi"** tarkoittaa, että pelaaja haluaa aloittaa uuden pelin, samalla vanha talllennus poistetaan ja pääsilmukka aloitetaan uudelleen. **True** ja **None** päättävät pelin normaalisti, kun taas **False** käynnistää tutkinnan epäonnistumisen käsittelyn.
 
 # **pelaaja.py**
 
